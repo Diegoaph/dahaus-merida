@@ -1,0 +1,40 @@
+@use './styles/variables' as *;
+@use './styles/mixins' as *;
+
+.app {
+  position: relative;
+  min-height: 100svh;
+}
+
+
+.image{
+  border-radius: 10px;
+}
+.app::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100lvh; /* evita el resize al aparecer la barra */
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(200, 200, 200, 0) 0%,
+      rgba(200, 200, 200, 1) 33%,
+      #c8c8c8 100%
+    ),
+    url("/hexagonos.jpg");
+
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+
+.main {
+  flex: 1 1 auto;
+  margin-top: -3.5rem;;
+}

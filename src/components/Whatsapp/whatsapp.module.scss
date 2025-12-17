@@ -1,0 +1,40 @@
+@use '../../styles/_variables' as *;
+@use '../../styles/_mixins' as *;
+
+.floatingWhatsapp {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 9999; /* por encima de todo */
+}
+
+.whatsappLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.whatsappButton {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #25D366; /* color oficial whatsapp */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(255,255,255,0.75);
+  @include transition-base;
+
+  display: grid;
+  place-items: center;
+
+  /* Logo en blanco dentro del botón */
+  svg path { fill: #FFFFFF; }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+}

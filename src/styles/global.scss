@@ -1,0 +1,42 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+/* Reset mínimo y tipografías */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  color: var(--primary-text);
+}
+
+body,:root {
+  margin: 0;
+  font-family: var(--font-base);
+  color: var(--primary-text);
+}
+
+/* Tipografía de encabezados global */
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+
+/* Scroll suave y respeto a reduced motion */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+/* Enlaces por defecto */
+a { @include link-base; }
+
+
+
+/* Utilidades */
+.container { @include container; }
+
+/* Estados de sección activa (ejemplo) */
+.section-active {
+  border-left: 4px solid var(--highlight);
+  background: rgba(255, 193, 7, 0.06);
+}

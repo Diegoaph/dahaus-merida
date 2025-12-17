@@ -1,0 +1,12 @@
+@use '../../styles/_variables' as *;
+@use '../../styles/_mixins' as *;
+
+.footer {
+  padding: 2rem 0;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  text-align: center;
+  background: var(--background);
+}
+.copy {
+  color: var(--primary-text);
+}

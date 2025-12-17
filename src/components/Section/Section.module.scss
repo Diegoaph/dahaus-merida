@@ -1,0 +1,61 @@
+// Section.module.scss
+
+@use '../../styles/_variables' as *;
+@use '../../styles/_mixins' as *;
+
+.section {
+  padding: 2rem 0;
+  @include texture-bg(wood); 
+  
+}
+
+
+.heading {
+  font-family: var(--font-heading);
+  margin: 0 0 0.75rem; 
+  font-size: 2.5rem;
+
+   @media (min-width: 1024px) {
+    font-size: 4rem;
+  }
+}
+
+.content {
+  padding: 1rem;
+
+  /* Flexbox para distribuir contenido */
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos salten a nuevas líneas si es necesario */
+  flex-direction: row; /* Dirección principal (horizontal) */
+  color: var(--primary-text);
+  width: 100%;
+  justify-content: space-around; /* Distribución equitativa con espacios alrededor */
+  gap: 1rem; /* Espaciado entre los elementos */
+
+  /* Reglas para que los hijos se adapten */
+  & > * {
+    flex: 1 1 calc(33.333% - 1rem); /* Ajusta el tamaño de los hijos */
+    max-width: calc(33.333% - 1rem); /* Cada elemento ocupa un tercer del ancho */
+    box-sizing: border-box; /* Incluir el padding en el ancho total */
+    aspect-ratio: auto; /* Mantiene un aspecto de proporción común */
+    object-fit: cover; /* Para imágenes que respeten la proporción sin distorsión */
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 1.3rem;
+  }
+  /* Ajustes para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    & > * {
+      flex: 1 1 calc(50% - 1rem); /* En pantallas medianas, dos elementos por fila */
+      max-width: calc(50% - 1rem);
+    }
+  }
+
+  @media (max-width: 480px) {
+    & > * {
+      flex: 1 1 100%; /* En pantallas pequeñas, un elemento por fila */
+      max-width: 100%;
+    }
+  }
+}

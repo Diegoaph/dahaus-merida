@@ -1,0 +1,64 @@
+/* Variables y temas: expone CSS variables para theme light/dark */
+
+/* Tokens base (SCSS) */
+$light-background: #d1cfcf;
+$light-primary-text: #000000;
+$light-secondary-text: #d1d1d1;
+$light-highlight: #FFC107;
+$light-button-bg: #121212;
+$light-button-text: #FFFFFF;
+$light-button-hover-bg: #FFC107;
+$light-button-active-bg: #FFB300;
+$light-link-color: #b98c02;
+
+$dark-background: #1B1B1B;
+$dark-primary-text: #EAEAEA;
+$dark-secondary-text: #8C8C8C;
+$dark-highlight: #FFC107;
+$dark-button-bg: #FFC107;
+$dark-button-text: #000000;
+$dark-button-hover-bg: #E5A083;
+$dark-button-active-bg: #E6A000;
+$dark-link-color: #FFFFFF;
+
+$disabled: #B0B0B0;
+
+/* Tipografía */
+$font-base: 'Lato', 'Poppins', system-ui, -apple-system, Roboto, sans-serif;
+$font-heading: 'Bangers', system-ui;
+
+
+/* Breakpoints */
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+
+/* Exportar variables CSS por tema */
+.theme--light {
+  --background: #{$light-background};
+  --primary-text: #{$light-primary-text};
+  --secondary-text: #{$light-secondary-text};
+  --highlight: #{$light-highlight};
+  --button-bg: #{$light-button-bg};
+  --button-text: #{$light-button-text};
+  --button-hover-bg: #{$light-button-hover-bg};
+  --button-active-bg: #{$light-button-active-bg};
+  --link-color: #{$light-link-color};
+  --disabled: #{$disabled};
+  --font-base: #{$font-base};
+  --font-heading: #{$font-heading};
+}
+
+.theme--dark {
+  --background: #{$dark-background};
+  --primary-text: #{$dark-primary-text};
+  --secondary-text: #{$dark-secondary-text};
+  --highlight: #{$dark-highlight};
+  --button-bg: #{$dark-button-bg};
+  --button-text: #{$dark-button-text};
+  --button-hover-bg: #{$dark-button-hover-bg};
+  --button-active-bg: #{$dark-button-active-bg};
+  --link-color: #{$dark-link-color};
+  --disabled: #{$disabled};
+  --font-base: #{$font-base};
+  --font-heading: #{$font-heading};
+}
