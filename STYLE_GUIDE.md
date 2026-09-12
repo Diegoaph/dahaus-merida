@@ -23,7 +23,7 @@ radios grandes.
 | cement | `#dbd6cb` | Superficie secundaria (el cemento) |
 | woodstone | `#6b4f33` | Madera, acento de baja frecuencia (tarimas, marcos) |
 | mustard-amber | `#ffc107` | CTA y foco visible |
-| padel-green | `#8fa83c` | Bandas decorativas y acentos editoriales de cancha |
+| padel-green | `#8fa83c` | Reservado. Sin uso como banda ni botón; solo acento de selección de texto |
 
 Regla de oro: texto y bordes siempre en carbon-ink; los vivos solo como banda full-bleed o
 acento grande, nunca como cromado de UI.
@@ -33,8 +33,10 @@ acento grande, nunca como cromado de UI.
 - Espaciado base 12 a 24px; 64 a 100px entre secciones editoriales
   (`clamp(4rem, 8vw, 6.25rem)`).
 - Bandas alternadas de fondo para crear profundidad:
-  sand (hero real foto) → padel-green → sand → cement → carbon-ink → sand → carbon-ink.
-- Un solo acento cromático por sección: ámbar para CTAs, verde solo en la banda padel.
+  foto (hero) → beige → beige (sedes) → cement → carbon-ink → beige → carbon-ink.
+- La banda deportiva ("Antes, durante y después del partido") es beige con hairlines
+  carbon y acentos de madera (woodstone), nunca verde.
+- Un solo acento cromático por sección: ámbar para CTAs.
 
 ## Tipografía
 

@@ -74,6 +74,15 @@
   }
 }
 
+/* En móvil el CTA queda en el panel y en el FAB; evita desborde del header */
+.header > .cta {
+  display: none;
+
+  @media (min-width: $bp-tablet) {
+    display: inline-flex;
+  }
+}
+
 .burger {
   @include button-reset;
   flex-direction: column;

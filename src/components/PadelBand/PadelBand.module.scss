@@ -2,7 +2,9 @@
 @use '../../styles/mixins' as *;
 
 .band {
-  background-color: $color-padel-green;
+  background-color: $color-canvas-sand;
+  border-top: 1px solid rgba(28, 26, 23, 0.12);
+  border-bottom: 1px solid rgba(28, 26, 23, 0.12);
   @include section-space;
 }
 
@@ -19,12 +21,25 @@
 }
 
 .eyebrow {
-  @include eyebrow;
+  @include eyebrow($color-woodstone);
 }
 
 .title {
   @include section-heading;
-  margin-bottom: 1.5rem;
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 4rem;
+    height: 4px;
+    border-radius: 2px;
+    background-color: $color-woodstone;
+  }
 }
 
 .body {
@@ -43,9 +58,17 @@
 
 .photo {
   border-radius: $radius-image;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 4 / 5;
+  max-height: clamp(20rem, 55vw, 34rem);
   object-fit: cover;
   width: 100%;
+}
+
+@media (min-width: $bp-tablet) {
+  .photo {
+    aspect-ratio: 2 / 3;
+    max-height: none;
+  }
 }
 
 @media (min-width: $bp-desktop) {

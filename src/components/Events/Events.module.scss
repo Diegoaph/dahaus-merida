@@ -40,9 +40,13 @@
 
 .gallery {
   display: grid;
-  grid-template-columns: 0.62fr 0.38fr;
+  grid-template-columns: 1fr;
   gap: 1rem;
-  align-items: stretch;
+
+  @media (min-width: $bp-tablet) {
+    grid-template-columns: 0.62fr 0.38fr;
+    align-items: stretch;
+  }
 }
 
 .photoMain,
@@ -57,7 +61,11 @@
 }
 
 .photoSide {
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 16 / 9;
   align-self: start;
-  margin-top: 3rem;
+
+  @media (min-width: $bp-tablet) {
+    aspect-ratio: 2 / 3;
+    margin-top: 3rem;
+  }
 }

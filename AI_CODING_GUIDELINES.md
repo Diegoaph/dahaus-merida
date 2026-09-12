@@ -15,7 +15,7 @@ arquitectura y las reglas que mantienen el landing premium, consistente y desple
 
 1. Navbar sticky
 2. Hero (full-bleed, CTAs Ver menú / Pide por WhatsApp)
-3. Banda padel (fondo padel-green)
+3. Banda deportiva (fondo beige, acentos de madera)
 4. Sedes (Garana, Metroatletik + teaser de Deck)
 5. Menú (PDF)
 6. Delivery (banda carbon-ink)
@@ -31,12 +31,12 @@ arquitectura y las reglas que mantienen el landing premium, consistente y desple
 | `--color-cement` | `#dbd6cb` | Superficie secundaria |
 | `--color-woodstone` | `#6b4f33` | Acento decorativo de baja frecuencia |
 | `--color-mustard-amber` | `#ffc107` | CTA y foco visible |
-| `--color-padel-green` | `#8fa83c` | Bandas editoriales, nunca botones |
+| `--color-padel-green` | `#8fa83c` | Reservado: sin uso como banda ni botón. Solo acento de selección de texto |
 
 Reglas de color:
 
 - Texto y bordes SIEMPRE en carbon-ink salvo sobre bandas oscuras (usar canvas-sand).
-- Ámbar solo en CTAs y foco. Padel-green solo como banda full-bleed o acento grande.
+- Ámbar solo en CTAs y foco. Padel-green reservado: sin uso como banda ni botón.
 - Nunca ambos colores vivos en la misma sección.
 
 ## Tipografía

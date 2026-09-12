@@ -7,8 +7,13 @@
 }
 
 .head {
-  max-width: 20ch;
+  width: 100%;
+  max-width: 100%;
   margin-bottom: clamp(2.5rem, 6vw, 4rem);
+
+  @media (min-width: $bp-tablet) {
+    max-width: 55%;
+  }
 }
 
 .eyebrow {
