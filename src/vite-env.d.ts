@@ -7,8 +7,12 @@ interface ImportMetaEnv {
   readonly VITE_WHATSAPP_EVENT_MESSAGE: string
   readonly VITE_INSTAGRAM_USER: string
   readonly VITE_INSTAGRAM_URL: string
-  readonly VITE_MENU_PATH: string
-  readonly VITE_MENU_VIEW_PATH: string
+  readonly VITE_MENU_HAMBURGUESAS_PATH: string
+  readonly VITE_MENU_HAMBURGUESAS_VIEW_PATH: string
+  readonly VITE_MENU_PLATOS_PATH: string
+  readonly VITE_MENU_PLATOS_VIEW_PATH: string
+  readonly VITE_MENU_BEBIDAS_PATH: string
+  readonly VITE_MENU_BEBIDAS_VIEW_PATH: string
   readonly VITE_MENU_SIMPLEX_PATH: string
   readonly VITE_MENU_SIMPLEX_VIEW_PATH: string
   readonly VITE_DEV_SITE_URL: string

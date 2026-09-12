@@ -15,11 +15,24 @@ const EVENT_MESSAGE =
   env.VITE_WHATSAPP_EVENT_MESSAGE ||
   '%C2%A1Hola!+Me+gustar%C3%ADa+reservar+una+fecha+para+un+evento'
 
-export const MENU_PATH = env.VITE_MENU_PATH || '/menu.pdf'
-export const MENU_VIEW_PATH = env.VITE_MENU_VIEW_PATH || '/menu.html'
-
-export const MENU_SIMPLEX_PATH = env.VITE_MENU_SIMPLEX_PATH || '/menu-simplex.pdf'
-export const MENU_SIMPLEX_VIEW_PATH = env.VITE_MENU_SIMPLEX_VIEW_PATH || '/menu-simplex.html'
+export const MENUS = {
+  hamburguesas: {
+    path: env.VITE_MENU_HAMBURGUESAS_PATH || '/menu-hamburguesas.pdf',
+    view: env.VITE_MENU_HAMBURGUESAS_VIEW_PATH || '/menu-hamburguesas.html',
+  },
+  platos: {
+    path: env.VITE_MENU_PLATOS_PATH || '/menu-platos.pdf',
+    view: env.VITE_MENU_PLATOS_VIEW_PATH || '/menu-platos.html',
+  },
+  bebidas: {
+    path: env.VITE_MENU_BEBIDAS_PATH || '/menu-bebidas.pdf',
+    view: env.VITE_MENU_BEBIDAS_VIEW_PATH || '/menu-bebidas.html',
+  },
+  simplex: {
+    path: env.VITE_MENU_SIMPLEX_PATH || '/menu-simplex.pdf',
+    view: env.VITE_MENU_SIMPLEX_VIEW_PATH || '/menu-simplex.html',
+  },
+} as const
 
 export const DEV_SITE = {
   url: env.VITE_DEV_SITE_URL || 'https://desarrollosdigitalpower.com',

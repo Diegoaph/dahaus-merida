@@ -38,31 +38,21 @@ Todo lo que puede cambiar sin tocar código vive en `.env` (ver `.env.example`):
 - Crédito de desarrollo (nombre y URL del estudio).
 - Enlaces de mapas (cortos para botones y de embebido para iframes).
 
-## Menú (PDF)
+## Menús (PDF)
 
-Hay dos menús, ambos generados por el script `scripts/generate-menu.py` (reportlab)
-a partir de los datos en `menu-assets/`:
+Los menús los diseña el cliente y viven en `public/` (4 archivos, reemplazables con el
+mismo nombre y ruta, sin tocar código):
 
-- `public/menu.pdf` — menú completo, todas las sedes (`menu-assets/dahaus.json`).
-- `public/menu-simplex.pdf` — oferta "Simplex", solo lunes a viernes hasta las 7:00 PM
-  (`menu-assets/simplex.json`).
+- `menu-hamburguesas.pdf` — hamburguesas crispy, clásicas, doppelt y especiales.
+- `menu-platos.pdf` — parrillas, cortes de res y platos fuertes.
+- `menu-bebidas.pdf` — cócteles, cervezas, batidos y más.
+- `menu-simplex.pdf` — oferta "Simplex", solo lunes a viernes hasta las 7:00 PM.
 
-Para actualizarlos:
-
-```bash
-python3 scripts/generate-menu.py
-exiftool -Title="Menú Dahaus Mérida" -Author="Dahaus Mérida" public/menu.pdf
-exiftool -Title="Menú Simplex · Lunes a Viernes hasta 7:00 PM" -Author="Dahaus Mérida" public/menu-simplex.pdf
-```
-
-Las fuentes de los menús viven en `menu-assets/fonts/` (Bangers + Lato, licencia OFL).
-El script está fuera del gate de build: `npm run build` no regenera PDFs; los archivos
-generados se commitean.
-
-Los botones de menú abren páginas estáticas con favicon y título propios:
-`public/menu.html` embebe `menu.pdf` y `public/menu-simplex.html` embebe
-`menu-simplex.pdf`. Así la pestaña siempre muestra el favicon de Dahaus y un título
-limpio en el navegador, aunque el PDF se reemplace.
+Cada menú tiene su página con favicon y título propios (`menu-*.html` en `public/`) que
+embebe el PDF en un iframe. Así la pestaña siempre muestra el favicon de Dahaus y un
+título limpio en el navegador, aunque el archivo se reemplace. Si un PDF nuevo trae
+metadato con basura (común en exports de diseño), corregir el title:
+`exiftool -Title="Menú de Hamburguesas · Dahaus Mérida" public/menu-hamburguesas.pdf`.
 
 ## SEO generado en build
 
@@ -71,7 +61,7 @@ El plugin `seo/build-seo.ts` hace tres cosas en cada build:
 1. Inyecta en `index.html` los datos estructurados (Organization + un bloque `Restaurant`
    por sede con horarios reales y `servesCuisine`). Horarios alineados con el Google
    Business Profile.
-2. Genera `sitemap.xml` (página principal + `menu.pdf` + `menu-simplex.pdf`).
+2. Genera `sitemap.xml` (página principal + los 4 menús).
 3. Genera `llms.txt` (H1, resumen y links clave).
 
 El robots.txt es estático en `public/` y permite explícitamente GPTBot, ClaudeBot,

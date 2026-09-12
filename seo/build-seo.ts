@@ -28,7 +28,12 @@ function restaurant(domain: string, name: string, slug: string, image: string, d
     servesCuisine: ['hamburguesas', 'parrillas'],
     telephone: '+584147009402',
     priceRange: '$$',
-    menu: [`${domain}/menu.pdf`, `${domain}/menu-simplex.pdf`],
+    menu: [
+      `${domain}/menu-hamburguesas.pdf`,
+      `${domain}/menu-platos.pdf`,
+      `${domain}/menu-bebidas.pdf`,
+      `${domain}/menu-simplex.pdf`,
+    ],
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Mérida',
@@ -77,7 +82,19 @@ function buildSitemap(domain: string) {
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>${cleanDomain}/menu.pdf</loc>
+    <loc>${cleanDomain}/menu-hamburguesas.pdf</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>${cleanDomain}/menu-platos.pdf</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>${cleanDomain}/menu-bebidas.pdf</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -108,8 +125,10 @@ function buildLlms(domain: string, env: Env) {
 ## Sitios
 
 - [Página principal](${cleanDomain}/)
-- [Menú (PDF)](${cleanDomain}/menu.pdf)
-- [Menú Simplex (PDF)](${cleanDomain}/menu-simplex.pdf): solo lunes a viernes, hasta las 7:00 PM.
+- [Menú de hamburguesas](${cleanDomain}/menu-hamburguesas.pdf)
+- [Menú de platos](${cleanDomain}/menu-platos.pdf)
+- [Menú de bebidas](${cleanDomain}/menu-bebidas.pdf)
+- [Menú Simplex](${cleanDomain}/menu-simplex.pdf): solo lunes a viernes, hasta las 7:00 PM.
 
 ## Sedes
 
