@@ -4,8 +4,8 @@ import { OpeningBadge } from '../OpeningBadge/OpeningBadge'
 import { WHATSAPP_URLS, MAPS, MAP_EMBEDS } from '../../config'
 import { formatClock, type Schedule } from '../../hooks/useOpenNow'
 
-const GARANA: Schedule = { days: [0, 1, 2, 3, 4, 5, 6], opens: '12:00', closes: '23:30' }
-const METRO: Schedule = { days: [0, 1, 2, 4, 5, 6], opens: '16:30', closes: '23:30' }
+const GARANA: Schedule = { days: [0, 1, 2, 3, 4, 5, 6], opens: '08:00', closes: '23:30' }
+const METRO: Schedule = { days: [0, 2, 3, 4, 5, 6], opens: '15:00', closes: '23:30' }
 
 export default function Locations() {
   return (
@@ -44,8 +44,9 @@ export default function Locations() {
               <OpeningBadge schedule={GARANA} />
             </div>
             <p className={styles.cardText}>
-              Dentro del Garana Padel Club, en la avenida Andrés Bello. Abierto todos los días,
-              de {formatClock(GARANA.opens)} a {formatClock(GARANA.closes)}.
+              Dentro del Garana Padel Club, en la avenida Andrés Bello. Abierto todos los días
+              de {formatClock(GARANA.opens)} a {formatClock(GARANA.closes)}, ahora también con
+              desayunos.
             </p>
             <div className={styles.actions}>
               <a
@@ -96,8 +97,8 @@ export default function Locations() {
             </div>
             <p className={styles.cardText}>
               Dentro del Metro Atletik, en la avenida principal Zumba, junto al Colegio de
-              Abogados. Desde acá se gestionan todos los pedidos de delivery. Abierto de jueves
-              a martes, de {formatClock(METRO.opens)} a {formatClock(METRO.closes)}.
+              Abogados. Desde acá se gestionan todos los pedidos de delivery. Abierto de martes
+              a domingo, de {formatClock(METRO.opens)} a {formatClock(METRO.closes)}.
             </p>
             <div className={styles.actions}>
               <a

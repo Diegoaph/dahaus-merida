@@ -6,7 +6,7 @@ type Env = Record<string, string>
 const SITE_NAME = 'Dahaus Mérida'
 
 const GARANA_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-const METRO_DAYS = ['Monday', 'Tuesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+const METRO_DAYS = ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
 function daySpecification(days: string[], opens: string, closes: string) {
   return {
@@ -53,9 +53,9 @@ function buildStructuredData(domain: string) {
       'dahaus-garana',
       'garana.webp',
       GARANA_DAYS,
-      '12:00',
+      '08:00',
       '23:30',
-      'Hamburguesas premium con pan de papa, parrillas, ensaladas, café y tequeños dentro del Garana Padel Club, en la avenida Andrés Bello, Mérida. Abierto todos los días de 12:00 a 23:30.',
+      'Hamburguesas premium con pan de papa, parrillas, ensaladas, café, desayunos y tequeños dentro del Garana Padel Club, en la avenida Andrés Bello, Mérida. Abierto todos los días de 8:00 a 23:30.',
     ),
     restaurant(
       cleanDomain,
@@ -63,9 +63,9 @@ function buildStructuredData(domain: string) {
       'dahaus-metroatletik',
       'metro.webp',
       METRO_DAYS,
-      '16:30',
+      '15:00',
       '23:30',
-      'Hamburguesas premium con pan de papa, parrillas y más dentro del complejo deportivo Metro Atletik, en la avenida principal Zumba, Mérida, junto al Colegio de Abogados. Atiende los pedidos de delivery y envíos a domicilio a toda Mérida y Ejido. Abierto de jueves a martes de 16:30 a 23:30.',
+      'Hamburguesas premium con pan de papa, parrillas y más dentro del complejo deportivo Metro Atletik, en la avenida principal Zumba, Mérida, junto al Colegio de Abogados. Atiende los pedidos de delivery y envíos a domicilio a toda Mérida y Ejido. Abierto de martes a domingo de 15:00 a 23:30.',
     ),
   ]
 }
@@ -132,8 +132,8 @@ function buildLlms(domain: string, env: Env) {
 
 ## Sedes
 
-- [Dahaus Garana](${mapGarana}): dentro del Garana Padel Club, avenida Andrés Bello, Mérida. Todos los días de 12:00 a 23:30.
-- [Dahaus Metroatletik](${mapMetro}): dentro del complejo deportivo Metro Atletik, avenida principal Zumba, Mérida. De jueves a martes de 16:30 a 23:30. Gestiona el delivery a toda Mérida y Ejido.
+- [Dahaus Garana](${mapGarana}): dentro del Garana Padel Club, avenida Andrés Bello, Mérida. Todos los días de 8:00 a 23:30, ahora también con desayunos.
+- [Dahaus Metroatletik](${mapMetro}): dentro del complejo deportivo Metro Atletik, avenida principal Zumba, Mérida. De martes a domingo de 15:00 a 23:30. Gestiona el delivery a toda Mérida y Ejido.
 
 ## Contacto
 
@@ -141,7 +141,7 @@ function buildLlms(domain: string, env: Env) {
 - [WhatsApp (reservar evento)](https://wa.me/${number}?text=${eventText})
 - [Instagram @dahausmerida](${instagramUrl})
 
-Horario de atención por WhatsApp: jueves a martes de 16:30 a 22:30.
+Delivery todos los días de 12:00 a 22:00. Atención por WhatsApp dentro de ese horario.
 `
 }
 

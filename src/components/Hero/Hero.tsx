@@ -29,7 +29,7 @@ export default function Hero() {
         </div>
       </div>
       <div className={styles.microbar}>
-        <p className={styles.microItem}>Delivery jueves a martes, 4:30 p.m. a 10:30 p.m.</p>
+        <p className={styles.microItem}>Delivery todos los días, 12:00 a 10:00 p.m.</p>
         <p className={styles.microItem}>Cobertura: toda Mérida y Ejido</p>
       </div>
     </section>

@@ -75,9 +75,9 @@ Reglas de color:
 
 ## Horarios
 
-- **Garana**: todos los días 12:00 a 23:30.
-- **Metroatletik**: jueves a martes 16:30 a 23:30. Gestiona el delivery.
-- **Delivery WhatsApp**: jueves a martes 16:30 a 22:30.
+- **Garana**: todos los días 8:00 a 23:30. Ahora también con desayunos (carta llega el lunes; botón "Carta de desayunos" abre un modal "en camino").
+- **Metroatletik**: martes a domingo 15:00 a 23:30. Gestiona el delivery.
+- **Delivery WhatsApp**: todos los días 12:00 a 22:00.
 - **Deck (Ejido)**: cerrada, en remodelación. Solo teaser "Próximamente".
 
 El badge "Abierto hoy" se calcula en vivo para zona `America/Caracas` en

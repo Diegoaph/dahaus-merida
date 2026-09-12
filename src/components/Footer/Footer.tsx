@@ -35,15 +35,15 @@ export default function Footer() {
           <dl className={styles.hoursList}>
             <div className={styles.hoursRow}>
               <dt>Garana</dt>
-              <dd>Todos los días, 12:00 a 11:30 p.m.</dd>
+              <dd>Todos los días, 8:00 a.m. a 11:30 p.m.</dd>
             </div>
             <div className={styles.hoursRow}>
               <dt>Metroatletik</dt>
-              <dd>Jueves a martes, 4:30 p.m. a 11:30 p.m.</dd>
+              <dd>Martes a domingo, 3:00 p.m. a 11:30 p.m.</dd>
             </div>
             <div className={styles.hoursRow}>
               <dt>Delivery</dt>
-              <dd>Jueves a martes, 4:30 p.m. a 10:30 p.m.</dd>
+              <dd>Todos los días, 12:00 a 10:00 p.m.</dd>
             </div>
           </dl>
         </div>

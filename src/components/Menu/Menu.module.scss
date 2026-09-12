@@ -88,6 +88,7 @@
   margin-top: auto;
   align-self: flex-start;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 .note {
@@ -97,4 +98,58 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   color: $color-ink-muted;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background-color: rgba(28, 26, 23, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.modal {
+  width: 100%;
+  max-width: 26rem;
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  background-color: $color-canvas-sand;
+  border: 1px solid rgba(28, 26, 23, 0.18);
+  border-radius: $radius-image;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  align-items: flex-start;
+}
+
+.modalEyebrow {
+  @include eyebrow;
+  margin-bottom: 0;
+}
+
+.modalTitle {
+  font-family: $font-display;
+  font-size: clamp(1.7rem, 4vw, 2.2rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: $color-carbon-ink;
+  margin: 0;
+}
+
+.modalText {
+  @include body-copy;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.modalClose {
+  @include cta-amber;
+  font-size: 1rem;
+  padding: 0.85rem 1.7rem;
+  margin-top: 0.35rem;
+  cursor: pointer;
 }

@@ -15,7 +15,7 @@ export default function Delivery() {
             cobertura en toda Mérida y Ejido.
           </p>
           <ul className={styles.list}>
-            <li className={styles.item}>Atención de jueves a martes, 4:30 p.m. a 10:30 p.m.</li>
+            <li className={styles.item}>Atención todos los días, de 12:00 a 10:00 p.m.</li>
             <li className={styles.item}>Pedidos confirmados por WhatsApp en el momento</li>
             <li className={styles.item}>Entrega a toda Mérida y Ejido</li>
           </ul>
