@@ -40,7 +40,7 @@ export default function Locations() {
             <div className={styles.cardTop}>
               <h3 id="garana-name" className={styles.cardTitle}>
                 Dahaus Garana
-              </h3>
+              </h3><br/>
               <OpeningBadge schedule={GARANA} />
             </div>
             <p className={styles.cardText}>
@@ -92,7 +92,7 @@ export default function Locations() {
             <div className={styles.cardTop}>
               <h3 id="metro-name" className={styles.cardTitle}>
                 Dahaus Metroatletik
-              </h3>
+              </h3><br/>
               <OpeningBadge schedule={METRO} />
             </div>
             <p className={styles.cardText}>

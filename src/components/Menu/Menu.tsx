@@ -39,8 +39,8 @@ const MENU_CARDS: MenuCard[] = [
   {
     id: 'desayunos',
     name: 'Desayunos',
-    text: 'Café, pan de papa, fuertes y dulces desde temprano.',
-    tag: 'Llega el lunes',
+    text: 'Café, waffles y dulces desde temprano.',
+    tag: 'Pronto en Dahaus Garana',
   },
 ]
 

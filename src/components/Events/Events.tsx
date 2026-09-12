@@ -12,7 +12,7 @@ export default function Events() {
           </h2>
           <p className={styles.body}>
             Llevamos la sede móvil a bodas, quinceaños, eventos corporativos y celebraciones
-            privadas. La misma parrilla, el mismo pan de papa y la misma atención en el espacio
+            privadas. El mismo pan de papa y la misma atención en el espacio
             que elijas.
           </p>
           <a
