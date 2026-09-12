@@ -126,10 +126,10 @@ export default function Menu() {
           >
             <p className={styles.modalEyebrow}>Desayunos</p>
             <h3 id="breakfast-title" className={styles.modalTitle}>
-              En camino, con pan de papa.
+              En camino, con pasteles, wafles, y mas!
             </h3>
             <p className={styles.modalText}>
-              La carta de desayunos de Dahaus Garana llega el lunes. ¡Volvé a pasar!
+              La carta de desayunos de Dahaus Garana llega pronto. ¡Vuelve a pasar!
             </p>
             <button
               type="button"
