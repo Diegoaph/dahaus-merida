@@ -1,0 +1,18 @@
+# robots.txt for Dahaus Mérida
+# Update the Sitemap URL if you use a custom domain
+User-agent: *
+Allow: /
+
+# Known AI and web crawlers (explicitly allowed)
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Amazonbot
+Allow: /
+
+Sitemap: https://www.dahausmerida.com/sitemap.xml

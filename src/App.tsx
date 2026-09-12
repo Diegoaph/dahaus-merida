@@ -24,7 +24,7 @@ function App() {
           <img className={styles.image} src="/deck.png" alt="/dahausmerida.jpg" /></Section>
         <Section id="dahaus-garana" title="Dahaus Garana">
         
-          <img className={styles.image} src="/garana.png" alt="/dahausmerida.jpg" /><div><p>Ubicada en la avenida Andrés Bello, Mérida, dentro del complejo deportivo Garana Padel Club. <br /> <br />Esta sede está pensada para acompañar la experiencia deportiva, con un servicio enfocado en hamburguesas, ideales para disfrutar antes o después de los partidos.</p><a
+          <img className={styles.image} src="/garana.png" alt="/dahausmerida.jpg" /><div><p>Ubicada en la avenida Andrés Bello, Mérida, dentro del complejo deportivo Garana Padel Club. <br /> <br />Esta sede está pensada para acompañar la experiencia deportiva, con un servicio enfocado en hamburguesas, ideales para disfrutar antes o después de los partidos.<strong> Visitanos todos los días desde las 12 del medio día, hasta las 11:30 de la noche. </strong></p><a
         href="https://maps.app.goo.gl/2ksuJQxwfqc3X2DS6"
         target="_blank"
         rel="noopener noreferrer"
@@ -34,7 +34,7 @@ function App() {
        Cómo llegar <img src="/marker.svg" alt="map marker Icon" width={24} height={24} />
       </a></div></Section>
         <Section id="dahaus-metroatletik" title="Dahaus Metroatletik">
-        <div> <p>Situada en la avenida principal Zumba, en Mérida, dentro del complejo deportivo Metro Atletik, esta sede comparte el enfoque deportivo y funcional.<br /> <br /> Desde esta ubicación se gestionan los pedidos de delivery y envíos a domicilio, convirtiéndola en el punto clave para llevar la experiencia Dahaus directamente hasta tu casa.</p><a
+        <div> <p>Situada en la avenida principal Zumba, en Mérida, dentro del complejo deportivo Metro Atletik, esta sede comparte el enfoque deportivo y funcional.<br /> <br /> Desde esta ubicación se gestionan los pedidos de delivery y envíos a domicilio, convirtiéndola en el punto clave para llevar la experiencia Dahaus directamente hasta tu casa. Ven a comer <strong>de jueves a martes desde las 4:30 de la tarde, hasta las 11:30 de la noche.</strong></p><a
         href="https://maps.app.goo.gl/kgUVixnvaWECi2Cq9"
         target="_blank"
         rel="noopener noreferrer"
@@ -47,6 +47,10 @@ function App() {
         </Section>
         <Section id="dahaus-events" title="Dahaus en tus eventos">
         <img className={styles.image} src="/eventos.png" alt="dahausmerida.jpg" /><p>Lleva la experiencia Dahaus a tu celebración con nuestra sede móvil, diseñada para convertir cualquier espacio en un evento inolvidable. Atendemos bodas, quinceaños, fiestas empresariales, eventos corporativos y celebraciones privadas, tanto en interiores como en exteriores, con el mismo estándar premium que distingue a Dahaus.<br /> <br /> Los eventos más TOP de Mérida ya nos eligen y nuestra agenda se llena rápido: asegura tu fecha hoy y no te quedes fuera de la experiencia que todos están buscando.</p>
+          </Section>
+
+          <Section id="dahaus-delivery" title="Pedidos a domicilio">
+        <p>Disfruta de nuestras hamburguesas y parrillas sin moverte de casa. <strong>Haz tu pedido por delivery</strong> de forma rápida y directa usando el botón de WhatsApp: escríbenos, elige tus platos favoritos y nosotros nos encargamos del resto. Comida recién hecha, atención inmediata y entrega puntual hasta tu puerta.</p><img className={styles.image} src="/delivery.png" alt="dahausmerida.jpg" />
           </Section>
       </main>
       <Footer />

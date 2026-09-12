@@ -33,10 +33,11 @@
 
 .hamburgerButton {
   background-color: transparent;
-  color: var(--primary-text);
-  border:none;transform:scale(2);
+  color: var(--secondary-text);
+  border:none;
+  font-size: xx-large;
   &:hover{
-    transform:scale(2.5);
+    transform:scale(1.5);
   }
 }
 

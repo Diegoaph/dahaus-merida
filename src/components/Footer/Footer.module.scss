@@ -4,9 +4,21 @@
 .footer {
   padding: 2rem 0;
   border-top: 1px solid rgba(0,0,0,0.08);
-  text-align: center;
+  text-align: left;
   background: var(--background);
+  display: flex;
+  font-size: smaller;
+  @media screen and (max-width: 600px){
+    flex-direction: column;
+    align-items: center;
+    text-align: start;
+  } 
 }
 .copy {
   color: var(--primary-text);
+}
+.instagram{
+  display:flex;
+  justify-content: start;
+  margin-top: 0.5rem;
 }

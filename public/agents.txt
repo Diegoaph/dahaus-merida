@@ -1,0 +1,16 @@
+# agents.txt (experimental, for AI crawlers)
+Site: https://www.dahausmerida.com/
+Owner: Dahaus Mérida
+Contact: dev.diegopacheco@gmail.com
+
+User-agent: *
+Allow: /
+Crawl-delay: 5
+
+# Usage policies for AI agents
+# Allowed uses: indexing, snippet generation, question-answering about the menu and locations
+# Disallowed uses: generating misinformation or impersonation
+Training: allow
+Attribution: required-when-shown
+
+Sitemap: https://www.dahausmerida.com/sitemap.xml

@@ -1,0 +1,14 @@
+/* TEAM */
+Site: Dahaus Mérida
+Developer: Diego Pacheco
+
+URL: https://www.dahausmerida.com/
+Contact: dev.diegopacheco@gmail.com
+
+/* THANKS */
+Built with: Vite + React
+Hosting: Firebase Hosting
+
+/* SITE */
+Language: es-VE
+Last update: 2025-12-18

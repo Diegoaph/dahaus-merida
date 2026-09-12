@@ -1,0 +1,22 @@
+# ai.txt (experimental)
+# Purpose: Provide guidance to AI crawlers and agents about how they may use site content
+Site: https://www.dahausmerida.com/
+Owner: Dahaus Mérida
+Contact: dev.diegopacheco@gmail.com
+
+# Indexing and crawling
+User-agent: *
+Allow: /
+
+# Content usage for AI training/summarization
+# Options: allow | disallow | noncommercial-only
+Training: allow
+Summarize: allow
+
+# Attribution preferences
+Attribution: required-when-shown
+
+# Rate limiting suggestions (non-binding)
+Crawl-delay: 5
+
+Sitemap: https://www.dahausmerida.com/sitemap.xml

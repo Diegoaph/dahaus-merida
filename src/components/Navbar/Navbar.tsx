@@ -6,7 +6,7 @@ const sections = [
   { id: 'dahaus-deck', label: 'Dahaus Deck' },
   { id: 'dahaus-garana', label: 'Dahaus Garana' },
   { id: 'dahaus-metroatletik', label: 'Dahaus Metroatletik' },
-  { id: 'dahaus-events', label: 'Dahaus en tus eventos' },
+  { id: 'dahaus-events', label: 'Dahaus en tus eventos' },{id:"dahaus-delivery", label:"Pedidos a domicilio"}
 ]
 
 export default function Navbar() {
