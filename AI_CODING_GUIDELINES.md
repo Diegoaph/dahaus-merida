@@ -1,113 +1,100 @@
-# Lineamientos para agentes de IA (Proyecto React SPA)
+# Lineamientos para agentes de IA (DAHAUS)
 
-Este documento debe ser leído por cualquier agente de codificación con IA antes de realizar cambios. Define los requisitos y restricciones del proyecto para mantener coherencia técnica y de diseño.
+Este documento debe leerse antes de tocar el proyecto. Define el sistema de diseño, la
+arquitectura y las reglas que mantienen el landing premium, consistente y desplegable.
 
 ## Descripción general
-- Proyecto: Aplicación web React de una sola página (SPA) con desplazamiento vertical largo.
-- Estructura: Varias secciones informativas, incluyendo una hero section superior.
-- Navegación: Navbar fija siempre visible en la parte superior.
-- Pie de página: Footer al final del contenido, siempre ubicado hasta abajo.
-- Diseño: Mobile-first y totalmente responsiva.
-- Prohibiciones: NO usar Tailwind CSS ni Next.js bajo ninguna circunstancia.
-- Estilos: SÍ usar módulos SCSS (CSS Modules con .module.scss).
 
-## Arquitectura y tecnologías
-- Framework: React (CRA/Vite/webpack), sin Next.js.
-- Estado: Preferir estado local y hooks integrados (useState, useEffect). Introducir librerías de estado global solo si es imprescindible.
-- Ruteo: No usar react-router para múltiples páginas. Toda la navegación es intra-página mediante anclas/scroll.
-- Estilos: Módulos SCSS por componente. No estilos globales salvo variables/mixins compartidos.
-- Accesibilidad: Cumplir prácticas básicas (roles ARIA, etiquetas, contraste, focos visibles, navegación por teclado).
+- Landing de una página (SPA) de DAHAUS Mérida: hamburguesas premium junto a las canchas
+  de padel, con delivery por WhatsApp como objetivo comercial.
+- Stack: React 19 + Vite + CSS Modules (SCSS) + Firebase Hosting. Sin backend. SEO
+  embebido en build.
+- Prohibido: Tailwind CSS, Next.js, frameworks CSS adicionales, rutas multi-página.
 
-## Layout y comportamiento requerido
-- Navbar fija (sticky/fixed) en la parte superior, siempre visible.
-  - Izquierda: Logo del comercio.
-  - Derecha: Menú hamburguesa o de tres puntos en móviles/tablet. Al expandirse, muestra entradas que navegan a cada sección de la página y puede incluir entradas adicionales de funcionalidad.
-  - En pantallas más grandes que tablet, el menú hamburguesa DESAPARECE y se muestran botones de navegación clásicos (links) de la navbar.
-- Hero section en la parte superior con llamado a la acción y contenido destacado.
-- Varias secciones informativas consecutivas verticalmente (ej.: características, servicios, testimonios, contacto, etc.).
-- Footer siempre al final del contenido (no fixed al viewport). Debe quedar visible tras llegar al final del scroll.
-- Mobile-first: Diseñar y estilizar primero para móvil, luego ampliar con media queries para tablet y desktop.
-- Navegación intra-página: Scroll suave hacia secciones, con IDs únicos por sección.
+## Orden de secciones (no cambiar sin avisar)
 
-## Responsividad
-- Puntos de quiebre sugeridos:
-  - Móvil: 0–767px
-  - Tablet: 768–1023px
-  - Desktop: ≥1024px
-- El menú hamburguesa debe estar activo hasta 1023px y ocultarse en ≥1024px, mostrando navegación clásica.
-- Imágenes y contenedores fluidos (max-width, width: 100%, object-fit donde aplique).
+1. Navbar sticky
+2. Hero (full-bleed, CTAs Ver menú / Pide por WhatsApp)
+3. Banda padel (fondo padel-green)
+4. Sedes (Garana, Metroatletik + teaser de Deck)
+5. Menú (PDF)
+6. Delivery (banda carbon-ink)
+7. Eventos
+8. Footer + FAB de WhatsApp (siempre visible)
 
-## Estructura de archivos sugerida
-- src/
-  - components/
-    - Navbar/
-      - Navbar.jsx
-      - Navbar.module.scss
-    - Hero/
-      - Hero.jsx
-      - Hero.module.scss
-    - Section/
-      - Section.jsx
-      - Section.module.scss
-    - Footer/
-      - Footer.jsx
-      - Footer.module.scss
-  - styles/
-    - _variables.scss
-    - _mixins.scss
-    - global.scss (mínimo y solo resets/vars)
-  - App.jsx
-  - App.module.scss
-  - main.jsx (o index.jsx)
+## Tokens (fuente única: `src/styles/_variables.scss`)
 
-Nota: Mantener estilos encapsulados por componente usando .module.scss. global.scss debe ser mínimo (reset/normalización y fuentes).
+| Tokens CSS | Valor | Rol |
+|---|---|---|
+| `--color-carbon-ink` | `#1c1a17` | Texto, bordes, trazos |
+| `--color-canvas-sand` | `#f0e9db` | Superficie base |
+| `--color-cement` | `#dbd6cb` | Superficie secundaria |
+| `--color-woodstone` | `#6b4f33` | Acento decorativo de baja frecuencia |
+| `--color-mustard-amber` | `#ffc107` | CTA y foco visible |
+| `--color-padel-green` | `#8fa83c` | Bandas editoriales, nunca botones |
 
-## Reglas de estilos (SCSS Modules)
-- No usar Tailwind CSS.
-- No introducir frameworks CSS adicionales sin aprobación.
-- Usar BEM adaptado dentro del scope del módulo si ayuda a claridad.
-- Variables y mixins en styles/_variables.scss y styles/_mixins.scss.
-- Media queries mobile-first (min-width).
+Reglas de color:
 
-## Accesibilidad y UX
-- Navbar accesible: botón hamburguesa con aria-controls, aria-expanded y etiqueta accesible.
-- Menú navegable por teclado: foco visible y orden lógico.
-- Anclas: cada sección debe tener un heading y un ID único.
-- Contraste adecuado y tamaños de toque suficientes en móvil.
-- Scroll suave sin bloquear la accesibilidad (prefiera CSS scroll-behavior: smooth; y considerar users que prefieren reduced motion).
+- Texto y bordes SIEMPRE en carbon-ink salvo sobre bandas oscuras (usar canvas-sand).
+- Ámbar solo en CTAs y foco. Padel-green solo como banda full-bleed o acento grande.
+- Nunca ambos colores vivos en la misma sección.
 
-## Funcionalidad del menú
-- Entradas mínimas: navegar a Hero y a cada sección informativa.
-- Se permiten entradas adicionales con otras funcionalidades (ej.: abrir modal de contacto, cambiar idioma, etc.).
-- En desktop, mostrar botones/links visibles en la navbar en lugar del menú hamburguesa.
+## Tipografía
 
-## Performance
-- Evitar dependencias innecesarias.
-- Imágenes optimizadas y carga adecuada (lazy donde corresponda, sin romper LCP del hero).
-- Evitar re-renderizados: memorizar handlers, dividir componentes si es necesario.
+- **Bangers**: solo titulares (hero y encabezados de sección), mayúsculas, 72 a 120 px en
+  el hero (usar `clamp`). Nunca en párrafos ni botones.
+- **Lato**: todo lo funcional (nav, botones, cuerpo, captions). Etiquetas de apoyo en
+  Lato 700, mayúsculas, tracking amplio (usar el mixin `eyebrow`).
+- Prohibido: serif display nuevo.
 
-## Buenas prácticas de código
-- Componentes funcionales y hooks.
-- Tipado opcional con PropTypes o TypeScript si el proyecto lo incluye (no obligatorio).
-- Nombres claros y autoexplicativos.
-- No introducir lógica de negocio compleja sin discusión previa.
+## Estilos (CSS Modules + SCSS)
 
-## Ejemplo de anclas y scroll
-- IDs de sección: "#hero", "#features", "#services", "#testimonials", "#contact".
-- Implementar scroll suave y resaltar sección activa si es pertinente.
+- Un `*.module.scss` por componente, importando `@use '../../styles/variables' as *;` y
+  `_mixins` cuando aplique.
+- Mixins disponibles (no duplicarlos): `button-reset`, `cta-pill`, `cta-amber`,
+  `cta-outline`, `container`, `section-space`, `eyebrow`, `section-heading`, `body-copy`,
+  `focus-ring`, `focus-ring-dark`, `transition-base`.
+- Cero sombras. La profundidad sale de bandas full-bleed y radios: imágenes 20px,
+  controles 10px, pills 9999px.
+- Mobile-first: estilizar para móvil y ampliar con `min-width`.
 
-## Restricciones y no permitidos
-- NO usar Next.js.
-- NO usar Tailwind CSS.
-- NO convertir la app en multi-página.
-- NO fijar el footer al viewport; debe ir al final del contenido.
+## Configuración
 
-## Requisitos de entrega para cualquier cambio
-- Respetar este documento.
-- Cambios mínimos y justificados.
-- Mantener compatibilidad responsiva.
-- Validar que navbar y footer cumplan su comportamiento en todos los breakpoints.
+- Valores mutables viven en `.env` (ver `.env.example`). Nunca quemar número de WhatsApp,
+  URLs de Instagram/mapas ni rutas de menú en componentes: pasan por `src/config.ts`.
+- `.env` está en `.gitignore`. Los cambios se reflejan re-ejecutando `npm run build`.
 
-## Notas adicionales
-- Si se requiere añadir librerías, justificar su uso en el PR/comentario.
-- Preferir funcionalidades nativas de React/DOM antes de introducir dependencias.
+## SEO (no opcional)
+
+- `index.html` ya tiene canonical, OG/Twitter y fuentes. No duplicar meta estática.
+- Los JSON-LD (`Restaurant` por sede), `sitemap.xml` y `llms.txt` los genera el plugin
+  `seo/build-seo.ts` dentro del build. Si cambian horarios o sedes, editar el plugin (o el
+  `.env` cuando aplique), no el HTML.
+- Imágenes con `alt` descriptivo y `loading="lazy"` cuando no son el hero. El hero va con
+  carga eager vía CSS.
+
+## Horarios
+
+- **Garana**: todos los días 12:00 a 23:30.
+- **Metroatletik**: jueves a martes 16:30 a 23:30. Gestiona el delivery.
+- **Delivery WhatsApp**: jueves a martes 16:30 a 22:30.
+- **Deck (Ejido)**: cerrada, en remodelación. Solo teaser "Próximamente".
+
+El badge "Abierto hoy" se calcula en vivo para zona `America/Caracas` en
+`src/hooks/useOpenNow.ts`.
+
+## Accesibilidad y calidad (gate)
+
+- `npm run build` debe pasar (TS estricto + Sass sin warnings). `npm run lint` limpio.
+- Contraste AA sobre bandas de color, foco visible en ámbar, navegación completa por
+  teclado, `prefers-reduced-motion` respetado.
+- Copy sin em-dash, sin flechas decorativas y sin clichés de marketing
+  ("apasionados", "calidad garantizada", jerga técnica).
+- Sin animaciones de reveal/scroll. A lo sumo micro-transiciones de hover y el pulse del
+  FAB.
+
+## Despliegue
+
+`npm run build` + `firebase deploy --only hosting`. Las imágenes originales viven en
+`public/.originals` (se commitean pero no se publican). El menú se actualiza
+sustituyendo `public/menu.pdf` sin tocar código.

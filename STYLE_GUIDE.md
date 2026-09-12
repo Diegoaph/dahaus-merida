@@ -1,140 +1,72 @@
-# Guía de Estilos (.module.scss) — Tema rústico sofisticado
+# Guía de estilo DAHAUS (SCSS Modules)
 
-Este documento define el sistema de diseño y los estilos base del sitio. Todo estilo debe implementarse usando SCSS Modules (.module.scss) y respetar el esquema de colores, tipografías y efectos interactivos descritos.
+Premium urbano con rudeza con estilo. La web debe verse como el lugar: hierro negro,
+beige, cemento, madera, cielo abierto y cancha. Sin sombras, con bandas full-bleed y
+radios grandes.
 
 ## Principios
-- Mobile-first y totalmente responsivo.
-- Navbar fija, visible siempre: logo a la izquierda; menú hamburguesa a la derecha en móvil/tablet. Desaparece el hamburguesa en desktop y se muestran links clásicos.
-- Footer al final del contenido (no fijado al viewport).
-- Navegación intra-página por anclas y scroll suave.
-- Sin Tailwind ni Next.js. Usar módulos SCSS.
 
-## Tipografías
-- Base: "Lato" o "Poppins" (moderna, geométrica).
-- Encabezados:  "Playfair Display" (rústico con clase).
-- Carga de fuentes: realizar en el global.scss (mínimo) o HTML, y luego referenciar variables en módulos.
+- Mobile-first, totalmente responsivo.
+- Una página larga (landing). Sin rutas internas.
+- Cero sombras: la profundidad se logra con bandas de color a sangre completa y radios
+  generosos (imágenes 20px, botones/inputs 10px, pills 9999px).
+- Fotografía al aire libre como protagonista. El hero es full-bleed sin radio; las tarjetas
+  de sedes sí usan radio.
+- Sin em-dash, sin flechas decorativas. Texto claro, directo, sin jerga.
 
-## Tokens de color y temas
-Los tokens están definidos en src/styles/_variables.scss y se exponen como CSS variables para soportar tema claro y oscuro.
+## Paleta
 
-Tema Claro
-- background: #F3F3F3 (cemento mate claro)
-- primary-text: #000000 (negro brillante)
-- secondary-text: #4A4A4A
-- highlight: #FFC107 (amarillo cálido)
-- button-bg: #121212 (negro brillante)
-- button-text: #FFFFFF
-- button-hover-bg: #FFC107
-- button-active-bg: #FFB300
-- link-color: #FFC107
+| Token | Valor | Uso |
+|---|---|---|
+| carbon-ink | `#1c1a17` | Texto, enlaces, bordes, trazos de iconos. Nunca negro neutro |
+| canvas-sand | `#f0e9db` | Superficie base (lonas beige) |
+| cement | `#dbd6cb` | Superficie secundaria (el cemento) |
+| woodstone | `#6b4f33` | Madera, acento de baja frecuencia (tarimas, marcos) |
+| mustard-amber | `#ffc107` | CTA y foco visible |
+| padel-green | `#8fa83c` | Bandas decorativas y acentos editoriales de cancha |
 
-Tema Oscuro
-- background: #1B1B1B (gris profundo con matiz azulado)
-- primary-text: #EAEAEA (blanco humo)
-- secondary-text: #8C8C8C
-- highlight: #FFC107
-- button-bg: #FFC107
-- button-text: #000000
-- button-hover-bg: #E5A083 (rosa desaturado)
-- button-active-bg: #E6A000
-- link-color: #FFFFFF
+Regla de oro: texto y bordes siempre en carbon-ink; los vivos solo como banda full-bleed o
+acento grande, nunca como cromado de UI.
 
-Estado inactivo
-- disabled: #B0B0B0 con opacidad reducida.
+## Composición y ritmo
 
-## Texturas visuales
-- Fondo general: patrón sutil de cemento en el tema claro (evitar peso visual). En oscuro, mantener liso con leve ruido.
-- Divisores o bloques: textura de madera suave.
-- Cabezal/branding: detalles de metal negro brillante en acentos.
+- Espaciado base 12 a 24px; 64 a 100px entre secciones editoriales
+  (`clamp(4rem, 8vw, 6.25rem)`).
+- Bandas alternadas de fondo para crear profundidad:
+  sand (hero real foto) → padel-green → sand → cement → carbon-ink → sand → carbon-ink.
+- Un solo acento cromático por sección: ámbar para CTAs, verde solo en la banda padel.
 
-Las texturas deben aplicarse con baja opacidad y tamaño adecuado para no saturar el diseño.
+## Tipografía
 
-## Efectos y transiciones
-- Hover: transición suave de 200ms para enlaces y botones.
-- Active: ligera sombra y cambio de color según tema.
-- Menús: deslizamiento hacia abajo (slide-down) en desplegables.
-- Header sticky: cambia opacidad en scroll (transparente al inicio; gris mate #292929 al bajar).
-- Respeto a reduced motion: desactivar/limitar animaciones si el usuario lo solicita.
+- Bangers: hero 64 a 120px, títulos de sección 44 a 72px (`clamp`), mayúsculas.
+  Única voz display. Tracking ligeramente negativo en títulos grandes.
+- Lato 400/500/700: nav, botones, cuerpo, captions, inputs.
+- Etiquetas de apoyo: Lato 700, mayúsculas y tracking 0.18em (mixin `eyebrow`), p. ej.
+  "ABIERTO HOY", "EN REMODELACIÓN", "DELIVERY".
 
-## Mixins y utilidades
-Están definidos en src/styles/_mixins.scss:
-- theme-root(light|dark): inyecta variables CSS para cada tema.
-- transition-base: aplica transición estándar de 200ms.
-- btn-base: estilos base de botón con variantes y estados.
-- link-base: estilos de enlace con subrayado y efectos.
-- texture-bg(type): aplica textura sutil (cemento|madera|metal) con filtros.
-- sticky-header: estilos para navbar fija con transición de opacidad.
+## Botones y CTAs
 
-## Uso en módulos SCSS
-Ejemplo Button.module.scss
-```
-@use "../../styles/variables" as *;
-@use "../../styles/mixins" as *;
+- CTA principal: ámbar con texto carbon-ink y borde carbon (`cta-amber`).
+- CTA secundario: contorno carbon sobre superficie clara (`cta-outline`).
+- Sobre bandas oscuras (hero, delivery): ghost con borde sand.
+- Todos los CTAs de acción van a WhatsApp (wa.me) con el prefill de `.env`.
 
-.button {
-  @include btn-base;
-}
-.button--primary {
-  background-color: var(--button-bg);
-  color: var(--button-text);
-}
-.button--disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-```
+## Enlaces, estados y foco
 
-Ejemplo Link.module.scss
-```
-@use "../../styles/variables" as *;
-@use "../../styles/mixins" as *;
+- Hover: micro-transición de 180ms (color/background). El CTA ámbar oscurece levemente.
+- Foco visible: anillo ámbar (sobre superficies ámbar, doble anillo carbon + ámbar).
+- `prefers-reduced-motion`: fuera animaciones y transiciones.
 
-.link {
-  @include link-base;
-}
-```
+## Interacción permitida
 
-Ejemplo Navbar.module.scss
-```
-@use "../../styles/variables" as *;
-@use "../../styles/mixins" as *;
+- Micro-transiciones de hover y botones.
+- Pulse del FAB de WhatsApp (solo con `prefers-reduced-motion: no-preference`).
+- Nada de reveal/scroll animations, parallax ni marquees.
 
-.navbar {
-  @include sticky-header;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.logo { /* izquierda */ }
-.menu { /* derecha */ }
+## Errores comunes
 
-/* Breakpoints */
-@media (min-width: 1024px) {
-  .hamburger { display: none; }
-  .links { display: flex; gap: 1rem; }
-}
-```
-
-## Scroll suave y estados activos
-- Usar scroll-behavior: smooth; a nivel del contenedor principal.
-- Resaltar sección activa con border-left o background sutil usando highlight.
-
-## Accesibilidad
-- Botón hamburguesa con aria-controls y aria-expanded.
-- Foco visible en enlaces y botones.
-- Contraste suficiente entre texto y fondo.
-
-## Implementación del tema
-- En el contenedor raíz (ej. <body> o #root) aplicar .theme--light o .theme--dark.
-- _variables.scss exporta CSS variables dentro de esos scopes. Los módulos consumen var(--token).
-
-## Recomendaciones de rendimiento
-- Optimizar imágenes y texturas (peso y formato).
-- Usar object-fit y tamaños fluidos.
-- Evitar sombras y filtros costosos en exceso.
-
-## Entregables
-- Todos los componentes deben tener su .module.scss.
-- Importar @use de variables y mixins.
-- Validar comportamiento en mobile, tablet y desktop.
-- Sin Tailwind ni Next.js.
+- Usar verde o ámbar como color de enlaces o decoración de UI.
+- Bangers en párrafos, botones o captions.
+- Sombra en tarjetas (usar banda de cement distinta de fondo).
+- Em-dashes o flechas en el copy.
+- Quemar valores de `.env` dentro de los componentes.

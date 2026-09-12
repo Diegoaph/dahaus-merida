@@ -1,73 +1,82 @@
-# React + TypeScript + Vite
+# DAHAUS Mérida
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing premium de una sola página: hamburguesas premium junto a las canchas de padel de
+Mérida. React 19 + Vite + CSS Modules (SCSS) + Firebase Hosting.
 
-Currently, two official plugins are available:
+## Stack y arquitectura
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 19 + Vite**, SPA estática sin backend. El SEO crítico se embeve en el build
+  (nada se genera en el navegador).
+- **CSS Modules con SCSS**. Design tokens en `src/styles/_variables.scss`. Sin frameworks CSS.
+- **Firebase Hosting** sirve la carpeta `dist`.
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+  config.ts                 Configuración build-time tipada (desde .env)
+  components/               Navbar, Hero, PadelBand, Locations, Menu, Delivery, Events, Footer, Whatsapp, OpeningBadge, MapEmbed
+  hooks/useOpenNow.ts       Horarios reales por sede (zona America/Caracas)
+  styles/                   _variables (tokens), _mixins, global
+seo/build-seo.ts            Plugin Vite: JSON-LD por sede, sitemap.xml y llms.txt
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Puesta en marcha
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+cp .env.example .env      # ajustar valores si cambian
+npm run dev               # desarrollo
+npm run build             # build de producción (gate del proyecto)
+npm run preview           # servir el build localmente
 ```
+
+## Configuración build-time (.env)
+
+Todo lo que puede cambiar sin tocar código vive en `.env` (ver `.env.example`):
+
+- Número y mensajes de WhatsApp (pedido / evento).
+- Instagram, dominio, ruta del menú.
+- Enlaces de mapas (cortos para botones y de embebido para iframes).
+
+## Menú (PDF)
+
+`public/menu.pdf` es la única fuente de verdad del menú. Para actualizarlo:
+
+1. Sustituye el archivo `public/menu.pdf` (mismo nombre y ruta).
+2. `npm run build` y despliega.
+
+Ningún código cambia.
+
+## SEO generado en build
+
+El plugin `seo/build-seo.ts` hace tres cosas en cada build:
+
+1. Inyecta en `index.html` los datos estructurados (Organization + un bloque `Restaurant`
+   por sede con horarios reales y `servesCuisine`). Horarios alineados con el Google
+   Business Profile.
+2. Genera `sitemap.xml` (página principal + `menu.pdf`).
+3. Genera `llms.txt` (H1, resumen y links clave).
+
+El robots.txt es estático en `public/` y permite explícitamente GPTBot, ClaudeBot,
+PerplexityBot y otros crawlers de IA.
+
+## Despliegue
+
+```bash
+npm run build
+firebase deploy --only hosting
+```
+
+El hosting ignora la carpeta `.originals` (originales de imagen que viven en el repo pero
+no se publican). La identidad del proyecto Firebase está en `.firebaserc`.
+
+## Reglas del proyecto
+
+- `npm run build` es el gate: debe pasar sin errores ni warnings de Sass/TS.
+- Sin em-dash ni flechas decorativas en el copy. Sin animaciones de reveal/scroll.
+  A lo sumo micro-transiciones de hover y el pulse del FAB de WhatsApp.
+- Contraste AA, foco visible ámbar, navegación por teclado y `prefers-reduced-motion`
+  respetados. Documentación extendida en `AI_CODING_GUIDELINES.md` y `STYLE_GUIDE.md`.
+
+## Crédito
+
+Desarrollo web: Diego Pacheco.
