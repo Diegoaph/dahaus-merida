@@ -1,5 +1,5 @@
 import styles from './Hero.module.scss'
-import { MENU_PATH, WHATSAPP_URLS } from '../../config'
+import { MENU_VIEW_PATH, WHATSAPP_URLS } from '../../config'
 
 export default function Hero() {
   return (
@@ -16,7 +16,7 @@ export default function Hero() {
           <div className={styles.ctas}>
             <a
               className={styles.ctaGhost}
-              href={MENU_PATH}
+              href={MENU_VIEW_PATH}
               target="_blank"
               rel="noopener noreferrer"
             >

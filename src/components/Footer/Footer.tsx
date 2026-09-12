@@ -1,5 +1,5 @@
 import styles from './Footer.module.scss'
-import { INSTAGRAM, WHATSAPP_URLS } from '../../config'
+import { INSTAGRAM, DEV_SITE, WHATSAPP_URLS } from '../../config'
 
 export default function Footer() {
   return (
@@ -53,8 +53,13 @@ export default function Footer() {
         <p>© {new Date().getFullYear()} Dahaus Mérida. Todos los derechos reservados.</p>
         <p>
           Desarrollo web{' '}
-          <a className={styles.devLink} href="mailto:Dev.DiegoPacheco@gmail.com">
-            Diego Pacheco
+          <a
+            className={styles.devLink}
+            href={DEV_SITE.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {DEV_SITE.name}
           </a>
         </p>
       </div>

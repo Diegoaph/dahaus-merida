@@ -34,17 +34,35 @@ npm run preview           # servir el build localmente
 Todo lo que puede cambiar sin tocar código vive en `.env` (ver `.env.example`):
 
 - Número y mensajes de WhatsApp (pedido / evento).
-- Instagram, dominio, ruta del menú.
+- Instagram, dominio, rutas del menú.
+- Crédito de desarrollo (nombre y URL del estudio).
 - Enlaces de mapas (cortos para botones y de embebido para iframes).
 
 ## Menú (PDF)
 
-`public/menu.pdf` es la única fuente de verdad del menú. Para actualizarlo:
+Hay dos menús, ambos generados por el script `scripts/generate-menu.py` (reportlab)
+a partir de los datos en `menu-assets/`:
 
-1. Sustituye el archivo `public/menu.pdf` (mismo nombre y ruta).
-2. `npm run build` y despliega.
+- `public/menu.pdf` — menú completo, todas las sedes (`menu-assets/dahaus.json`).
+- `public/menu-simplex.pdf` — oferta "Simplex", solo lunes a viernes hasta las 7:00 PM
+  (`menu-assets/simplex.json`).
 
-Ningún código cambia.
+Para actualizarlos:
+
+```bash
+python3 scripts/generate-menu.py
+exiftool -Title="Menú Dahaus Mérida" -Author="Dahaus Mérida" public/menu.pdf
+exiftool -Title="Menú Simplex · Lunes a Viernes hasta 7:00 PM" -Author="Dahaus Mérida" public/menu-simplex.pdf
+```
+
+Las fuentes de los menús viven en `menu-assets/fonts/` (Bangers + Lato, licencia OFL).
+El script está fuera del gate de build: `npm run build` no regenera PDFs; los archivos
+generados se commitean.
+
+Los botones de menú abren páginas estáticas con favicon y título propios:
+`public/menu.html` embebe `menu.pdf` y `public/menu-simplex.html` embebe
+`menu-simplex.pdf`. Así la pestaña siempre muestra el favicon de Dahaus y un título
+limpio en el navegador, aunque el PDF se reemplace.
 
 ## SEO generado en build
 
@@ -53,7 +71,7 @@ El plugin `seo/build-seo.ts` hace tres cosas en cada build:
 1. Inyecta en `index.html` los datos estructurados (Organization + un bloque `Restaurant`
    por sede con horarios reales y `servesCuisine`). Horarios alineados con el Google
    Business Profile.
-2. Genera `sitemap.xml` (página principal + `menu.pdf`).
+2. Genera `sitemap.xml` (página principal + `menu.pdf` + `menu-simplex.pdf`).
 3. Genera `llms.txt` (H1, resumen y links clave).
 
 El robots.txt es estático en `public/` y permite explícitamente GPTBot, ClaudeBot,
@@ -79,4 +97,4 @@ no se publican). La identidad del proyecto Firebase está en `.firebaserc`.
 
 ## Crédito
 
-Desarrollo web: Diego Pacheco.
+Desarrollo web: [DesarrollosDigitalPower.com](https://desarrollosdigitalpower.com).

@@ -1,0 +1,407 @@
+{
+  "hamburguesas_crispy": [
+    {
+      "nombre": "Katana",
+      "precio": "$10.00",
+      "descripcion": "Pan de papa, pollo crispy (150g), queso tipo americano, tocineta crocante, zanahoria en bastones, pepinillos encurtidos y salsa Katana."
+    },
+    {
+      "nombre": "Pollo (Crispy)",
+      "precio": "$10.00",
+      "descripcion": "Pan de papa, pollo crispy (150g), queso tipo americano, tocineta crocante, tomate, cebolla, lechuga y salsa tártara."
+    },
+    {
+      "nombre": "TX",
+      "precio": "$10.00",
+      "descripcion": "Pan de papa, pollo crispy (150g), queso tipo americano, tocineta crocante, ensalada coleslaw, pepinillos encurtidos y salsa TX."
+    },
+    {
+      "nombre": "Ranch de Pollo",
+      "precio": "$10.00",
+      "descripcion": "Pan de papa, pollo crispy (150g), queso mozzarella, maíz entero dulce, pepinillos encurtidos, lechuga romana, tomate, salsa BBQ y salsa ranch."
+    },
+    {
+      "nombre": "Kiut Dani",
+      "precio": "$10.50",
+      "descripcion": "Pan de papa, pollo crispy (150g), queso tipo americano, tocineta crocante, maní, mermelada Kiut y salsa Katana."
+    },
+    {
+      "nombre": "Tentación",
+      "precio": "$10.50",
+      "descripcion": "Pan de papa, pollo crispy (150g), queso crema Filadelfia, mermelada de pimentón y rúcula."
+    }
+  ],
+  "hamburguesas_gourmet": [
+    {
+      "nombre": "Asiloé",
+      "precio": "$13.50",
+      "descripcion": "Pan de papa, 2 carnes (100g c/u), queso crema Filadelfia, cebolla caramelizada, champiñones frescos salteados y tocineta crocante."
+    },
+    {
+      "nombre": "Camarón",
+      "precio": "$12.99",
+      "descripcion": "Pan de papa, camarones rebozados (150g), queso mozzarella, alfalfa, aguacate en láminas, tomate, lechuga y salsa mayo-limón."
+    },
+    {
+      "nombre": "Dimas",
+      "precio": "$12.99",
+      "descripcion": "Pan de papa, 2 carnes (100g c/u), 2 rebanadas de queso tipo americano, queso empanizado tocineta crocante, cebolla caramelizada, lechuga y salsa Dimas."
+    },
+    {
+      "nombre": "Mushroom",
+      "precio": "$12.99",
+      "descripcion": "Pan de papa, 2 carnes (100g c/u), 2 rebanadas de queso mozzarella, tocineta crocante y crema de champiñones."
+    },
+    {
+      "nombre": "Mediterránea",
+      "precio": "$12.99",
+      "descripcion": "Pan de papa, 2 carnes (100g c/u), 1 rebanada de queso mozzarella y 1 rebanada de queso tipo americano, tocineta crocante, rúcula y tomates confitados."
+    }
+  ],
+  "hamburguesas_clasicas": [
+    {
+      "nombre": "Carne",
+      "precio": "$8.99",
+      "descripcion": "Pan de papa, carne (100g), queso tipo americano, tocineta crocante, cebolla, lechuga, tomate, y salsa tártara."
+    },
+    {
+      "nombre": "Pollo",
+      "precio": "$8.99",
+      "descripcion": "Pan de papa, pechuga de pollo (100g), queso tipo americano, tocineta crocante, tomate, cebolla, lechuga y salsa tártara."
+    },
+    {
+      "nombre": "1/4 Libra",
+      "precio": "$8.99",
+      "descripcion": "Pan de papa, carne (100g), queso tipo americano, cebolla, pepinillos encurtidos, salsa de tomate y mostaza."
+    },
+    {
+      "nombre": "Criolla",
+      "precio": "$9.50",
+      "descripcion": "Pan de papa, carne (100g), queso mozzarella, huevo, tocineta crocante, tomate, cebolla, lechuga y salsa tártara."
+    },
+    {
+      "nombre": "Chuleta",
+      "precio": "$10.50",
+      "descripcion": "Pan de papa, chuleta ahumada (100g), queso tipo americano, tocineta crocante, tomate, cebolla, lechuga y salsa tártara."
+    }
+  ],
+  "hamburguesas_doppelt": [
+    {
+      "nombre": "Carne-Pollo",
+      "precio": "$12.50",
+      "descripcion": "Pan de papa, carne (100g), pechuga de pollo (100g), 2 rebanadas de queso tipo americano, tocineta crocante, tomate, cebolla, lechuga y salsa tártara."
+    },
+    {
+      "nombre": "Carne-Chuleta",
+      "precio": "$13.50",
+      "descripcion": "Pan de papa, carne (100g), chuleta ahumada (100g), 2 rebanadas de queso tipo americano, tocineta crocante, tomate, cebolla, lechuga y salsa tártara."
+    },
+    {
+      "nombre": "Pollo-Chuleta",
+      "precio": "$13.50",
+      "descripcion": "Pan de papa, pechuga de pollo (100g), chuleta ahumada (100g), 2 rebanadas de queso tipo americano, tocineta crocante, tomate, cebolla, lechuga y salsa tártara."
+    },
+    {
+      "nombre": "Pollo Crispy-Chuleta",
+      "precio": "$13.99",
+      "descripcion": "Pan de papa, pollo crispy (150g), chuleta (100g), 2 rebanadas de queso tipo americano, tocineta crocante, tomate, cebolla, lechuga y salsa tártara."
+    }
+  ],
+  "hamburguesas_especiales": [
+    {
+      "nombre": "Dahaus",
+      "precio": "$9.50",
+      "descripcion": "Pan de papa, carne (100g), queso tipo americano, tocineta crocante, relish, cebolla morada en brunoise y salsa Dahaus."
+    },
+    {
+      "nombre": "Smash",
+      "precio": "$9.50",
+      "descripcion": "Pan de papa, carne (100g), queso tipo americano, tocineta crocante, cebolla caramelizada y salsa Smash."
+    },
+    {
+      "nombre": "Hot",
+      "precio": "$9.50",
+      "descripcion": "Pan de papa, carne (100g), queso tipo americano, tocineta crocante, pepinillos encurtidos, cebolla morada en brunoise y salsa hot picante."
+    },
+    {
+      "nombre": "La-Mía",
+      "precio": "$10.00",
+      "descripcion": "Pan de papa, carne (100g), queso parrilla, chorizo, cebolla morada en brunoise y salsa mayo-chimichurri."
+    },
+    {
+      "nombre": "Ranchera",
+      "precio": "$10.00",
+      "descripcion": "Pan de papa, carne (100g), queso mozzarella, maíz entero dulce, pepinillos encurtidos, lechuga romana, tomate, salsa BBQ y salsa ranch."
+    },
+    {
+      "nombre": "Tidani",
+      "precio": "$10.50",
+      "descripcion": "Pan de papa, carne (100g), queso empanizado, tomates confitados, rúcula y salsa de pimentón ahumado."
+    }
+  ],
+  "cajita_feliz": [
+    {
+      "nombre": "Hamburguesas",
+      "precio": "$9.99",
+      "descripcion": "Pan de papa, carne o pollo (100g), queso tipo americano, mayonesa y salsa de tomate. Incluye 100g de papas francesas, 1 jugo y un premio sorpresa."
+    },
+    {
+      "nombre": "Tenders de Pollo",
+      "precio": "$9.99",
+      "descripcion": "150g de tiras de pollo empanizadas y salsa de tomate. Incluye 100g de papas francesas, 1 jugo y un premio sorpresa."
+    },
+    {
+      "nombre": "Nuggets de Pollo",
+      "precio": "$9.99",
+      "descripcion": "5 piezas de nuggets de pollo y salsa de tomate. Incluye 100g de papas francesas, 1 jugo y un premio sorpresa."
+    }
+  ],
+  "ensaladas": [
+    {
+      "nombre": "Ensalada César con Camarones",
+      "precio": "$10.99",
+      "descripcion": "Camarones salteados, lechuga romana, crotones de pan tostado, queso pecorino, tocineta crujiente y aderezo César."
+    },
+    {
+      "nombre": "Ensalada César con Pollo",
+      "precio": "$9.99",
+      "descripcion": "Pechuga de pollo en tiritas a la plancha o empanizada, lechuga romana, crotones de pan tostado, queso pecorino, tocineta crujiente y aderezo César."
+    },
+    {
+      "nombre": "Ensalada Asiática",
+      "precio": "$9.99",
+      "descripcion": "Camarones salteados, lechuga romana, piña en cubitos, aguacate, bastones de zanahoria, repollo morado y blanco, pimentón en juliana, sésamo y salsas Thai."
+    },
+    {
+      "nombre": "Ensalada Granjera con Camarones",
+      "precio": "$10.99",
+      "descripcion": "Camarones salteados, lechuga romana, tomate marinado, bastones de zanahoria, alfalfa, pimentón en juliana, maíz dulce, champiñones salteados, aguacate y salsa TX."
+    },
+    {
+      "nombre": "Ensalada Granjera",
+      "precio": "$9.99",
+      "descripcion": "Pechuga de pollo al grill en tiritas, lechuga romana, tomate marinado, bastones de zanahoria, alfalfa, pimentón en juliana, maíz dulce, champiñones salteados, aguacate y salsa TX."
+    },
+    {
+      "nombre": "Ensalada Kani",
+      "precio": "$9.99",
+      "descripcion": "Cangrejo en cubitos, wakame, lechuga romana, aguacate, pepino, bastones de zanahoria, ajonjolí, cebollín y salsa asiática."
+    }
+  ],
+  "alitas_de_pollo": [
+    {
+      "nombre": "Alitas Fritas",
+      "precio": "$8.99",
+      "descripcion": "450g de alitas de pollo. Incluye servicio de papas francesas 150g."
+    },
+    {
+      "nombre": "Alitas BBQ",
+      "precio": "$9.99",
+      "descripcion": "450g de alitas de pollo con salsa BBQ y ajonjolí. Incluye servicio de papas francesas 150g."
+    },
+    {
+      "nombre": "Alitas BBQ Picante",
+      "precio": "$9.99",
+      "descripcion": "450g de alitas de pollo con salsa BBQ picante y ajonjolí. Incluye servicio de papas francesas 150g."
+    },
+    {
+      "nombre": "Alitas BBQ Súper Picantes",
+      "precio": "$9.99",
+      "descripcion": "450g de alitas de pollo con salsa BBQ súper picantes y ajonjolí. Incluye servicio de papas francesas 150g."
+    },
+    {
+      "nombre": "Alitas Ajonjolí y Miel",
+      "precio": "$9.99",
+      "descripcion": "450g de alitas de pollo con miel y ajonjolí. Incluye servicio de papas francesas 150g."
+    }
+  ],
+  "entradas": [
+    {
+      "nombre": "Tequeños",
+      "precio": "$4.99",
+      "descripcion": "6 und de tequeños de queso acompañados con salsa tártara."
+    },
+    {
+      "nombre": "Empanaditas de Camarones",
+      "precio": "$4.99",
+      "descripcion": "4 und de empanaditas de harina de trigo fritas rellenas de camarones."
+    },
+    {
+      "nombre": "Tenders de Pollo",
+      "precio": "$4.99",
+      "descripcion": "150g de tiras de pollo empanizadas acompañadas con salsa tártara."
+    },
+    {
+      "nombre": "Cotufas de Pollo",
+      "precio": "$4.99",
+      "descripcion": "200g de trocitos de pollo en cuadritos empanizado acompañado con salsa BBQ."
+    }
+  ],
+  "platos": [
+    {
+      "nombre": "Churrasco de Cerdo en Melocotón",
+      "precio": "$17.50",
+      "descripcion": "200g de lomo de cerdo sellado a la plancha y cubierto en salsa de melocotón. Incluye contornos a escoger."
+    },
+    {
+      "nombre": "Chuletón en Salsa BBQ",
+      "precio": "$13.50",
+      "descripcion": "200g de chuletón de cerdo cubierto en deliciosa salsa BBQ. Incluye contornos a escoger."
+    },
+    {
+      "nombre": "Solomillo de Res",
+      "precio": "$12.50",
+      "descripcion": "200g de tierno y jugoso corte de solomillo de res, cocinado a la parrilla. Incluye contornos a escoger."
+    },
+    {
+      "nombre": "Pechuga de Pollo en Crema de Champiñones",
+      "precio": "$11.50",
+      "descripcion": "200g de jugosa pechuga de pollo cocida a la plancha cubierta con una crema de champiñones y mozzarella. Incluye contornos a escoger."
+    },
+    {
+      "nombre": "Churrasco de Pollo",
+      "precio": "$9.99",
+      "descripcion": "300g de pollo (muslo y cuadril) en forma de filet sin hueso asado al grill. Incluye contornos a escoger."
+    },
+    {
+      "nombre": "Pechuga de Pollo en Salsa Pomodoro",
+      "precio": "$9.99",
+      "descripcion": "200g de pechuga de pollo crispy, cubierta en salsa pomodoro y gratinada con queso mozzarella. Incluye contornos a escoger."
+    }
+  ],
+  "parrillas": [
+    {
+      "nombre": "Parrilla Especial",
+      "precio": "$18.50",
+      "descripcion": "350g de proteína (solomo, chorizo, pollo o cochino), papas francesas, arepitas fritas, queso a la plancha y ensalada César."
+    },
+    {
+      "nombre": "Parrilla Clásica",
+      "precio": "$15.99",
+      "descripcion": "350g de proteína (solomo, chorizo y churrasco de pollo), papas rústicas, arepitas fritas y ensalada coleslaw."
+    },
+    {
+      "nombre": "Picada Colombiana",
+      "precio": "$12.50",
+      "descripcion": "300g de proteína (solomo y churrasco de pollo), papas colombianas y ensalada coleslaw."
+    }
+  ],
+  "cortes_de_res": [
+    {
+      "nombre": "Filet Mignon",
+      "precio": "$29.50",
+      "descripcion": "350g de un corte magro de la parte más tierna del lomito, envuelto en tiras de tocineta, bañado en salsa con champiñones y vino tinto que conserva una textura suave y sabor delicado. Incluye contornos a escoger."
+    },
+    {
+      "nombre": "Tomahawk",
+      "precio": "$26.99",
+      "descripcion": "500g de chuletón de ternera premium extraído de las costillas delanteras de la res, conservando el hueso y un sabor intenso. Incluye contornos a escoger."
+    },
+    {
+      "nombre": "T-Bone",
+      "precio": "$26.99",
+      "descripcion": "500g de un corte de carne, que se caracteriza por tener un hueso en forma de \"T\" que separa dos partes distintas de carne: el lomo bajo (New York strip) y el solomillo (filete). Incluye contornos a escoger."
+    },
+    {
+      "nombre": "Churrasco New York",
+      "precio": "$19.99",
+      "descripcion": "400g de ternera premium en un corte jugoso, magro y sin hueso, sabor intenso en cada bocado. Incluye contornos a escoger."
+    },
+    {
+      "nombre": "Centro de Lomito",
+      "precio": "$19.99",
+      "descripcion": "350g de lomito de ternera premium suave, magro e imponente (servido en forma de medallones). Incluye contornos a escoger."
+    }
+  ],
+  "bebidas_y_otros": {
+    "sodas_saborizadas": [
+      {"nombre": "Parchita", "precio": "$2.99"},
+      {"nombre": "Frutos Rojos", "precio": "$2.99"},
+      {"nombre": "Limón", "precio": "$2.99"},
+      {"nombre": "Michelada", "precio": "$3.50"}
+    ],
+    "batidos_y_merengadas": [
+      {"nombre": "Fresa", "precio_batido": "$2.99", "precio_merengada": "$3.99"},
+      {"nombre": "Mora", "precio_batido": "$2.99", "precio_merengada": "$3.99"},
+      {"nombre": "Parchita", "precio_batido": "$2.99", "precio_merengada": "$3.99"},
+      {"nombre": "Piña", "precio_batido": "$2.99", "precio_merengada": "$3.99"},
+      {"nombre": "Mango", "precio_batido": "$2.99", "precio_merengada": "$3.99"},
+      {"nombre": "Durazno", "precio_batido": "$2.99", "precio_merengada": "$3.99"},
+      {"nombre": "Guanabana", "precio_batido": "$2.99", "precio_merengada": "$3.99"},
+      {"nombre": "Lechosa", "precio_batido": "$2.99", "precio_merengada": "$3.99"},
+      {"nombre": "Oreo", "precio_merengada": "$4.99"},
+      {"nombre": "Toddy", "precio_merengada": "$4.99"}
+    ],
+    "frappes": [
+      {"nombre": "Fresa", "precio": "$3.50"},
+      {"nombre": "Mora", "precio": "$3.50"},
+      {"nombre": "Parchita", "precio": "$3.50"},
+      {"nombre": "Durazno", "precio": "$3.50"},
+      {"nombre": "Limón", "precio": "$3.50"},
+      {"nombre": "Limón y Hierbabuena", "precio": "$3.50"}
+    ],
+    "bebidas_energeticas": [
+      {"nombre": "Red Bull", "precio": "$3.99"},
+      {"nombre": "Monster", "precio": "$3.99"},
+      {"nombre": "Rockstar", "precio": "$2.99"}
+    ],
+    "varios": [
+      {"nombre": "Agua 600ml", "precio": "$1.20"},
+      {"nombre": "Agua saborizada", "precio": "$2.50"},
+      {"nombre": "Gatorade", "precio": "$2.80"},
+      {"nombre": "Powerade", "precio": "$2.00"},
+      {"nombre": "Jugo Infantil", "precio": "$2.00"},
+      {"nombre": "Lipton", "precio": "$2.80"},
+      {"nombre": "Nestea Limón/Durazno", "precio": "$2.50"},
+      {"nombre": "Refrescos de botella", "precio": "$1.50"},
+      {"nombre": "Refrescos de lata", "precio": "$2.50"},
+      {"nombre": "Refrescos de bombita", "precio": "$1.99"},
+      {"nombre": "Malta", "precio": "$1.00"},
+      {"nombre": "Soda", "precio": "$2.00"}
+    ],
+    "cocteles": [
+      {"nombre": "Mojito", "precio": "$4.50"},
+      {"nombre": "Daiquiri fresa/parchita", "precio": "$4.50"},
+      {"nombre": "Margarita", "precio": "$4.50"},
+      {"nombre": "Blue lagoon", "precio": "$4.50"},
+      {"nombre": "Tequila sunrise", "precio": "$4.50"},
+      {"nombre": "Cuba libre", "precio": "$4.50"},
+      {"nombre": "Ginfizz", "precio": "$4.50"},
+      {"nombre": "Tinto de Verano", "precio": "$4.50"},
+      {"nombre": "Piña colada", "precio": "$5.50"},
+      {"nombre": "Frida", "precio": "$6.50"},
+      {"nombre": "Long island", "precio": "$6.50"}
+    ],
+    "vinos": [
+      {"nombre": "Vino tinto", "precio_copa": "$4.99", "precio_botella": "$24.99"},
+      {"nombre": "Vino blanco", "precio_copa": "$4.99", "precio_botella": "$24.99"},
+      {"nombre": "Vino rosado", "precio_copa": "$4.99", "precio_botella": "$24.99"}
+    ],
+    "cervezas_nacionales": [
+      {"nombre": "Zulia", "precio_lata": "$1.99", "precio_botella": "$1.50"},
+      {"nombre": "Morena", "precio_botella": "$1.50"},
+      {"nombre": "Regional pilsen", "precio_botella": "$1.50"},
+      {"nombre": "Polar ligth", "precio_botella": "$1.50"},
+      {"nombre": "Polar negra", "precio_botella": "$1.50"},
+      {"nombre": "Solera azul", "precio_lata": "$1.99", "precio_botella": "$1.50"},
+      {"nombre": "Solera verde", "precio_lata": "$1.99", "precio_botella": "$1.50"},
+      {"nombre": "Solera bohemia", "precio_lata": "$1.99"},
+      {"nombre": "Caroreña verano", "precio": "$2.50"},
+      {"nombre": "Caroreña blanca", "precio": "$2.50"},
+      {"nombre": "Cardenal", "precio_lata": "$1.99"}
+    ],
+    "cervezas_importadas": [
+      {"nombre": "Águila", "precio_lata": "$2.50"},
+      {"nombre": "Póker", "precio_lata": "$2.50"},
+      {"nombre": "Budweiser", "precio_lata": "$2.50"},
+      {"nombre": "Club Colombia", "precio_lata": "$2.50"},
+      {"nombre": "Heineken", "precio_lata": "$2.50"},
+      {"nombre": "Presidente", "precio_lata": "$2.50"},
+      {"nombre": "Modelo especial", "precio_lata": "$2.50", "precio_botella": "$3.99"},
+      {"nombre": "Corona extra", "precio_botella": "$3.99"},
+      {"nombre": "Coronita", "precio_botella": "$2.99"},
+      {"nombre": "Stella artois", "precio_lata": "$2.99"},
+      {"nombre": "Smirnoff", "precio_botella": "$3.99"}
+    ]
+  }
+}

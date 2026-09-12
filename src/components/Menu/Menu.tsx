@@ -1,5 +1,5 @@
 import styles from './Menu.module.scss'
-import { MENU_PATH } from '../../config'
+import { MENU_VIEW_PATH, MENU_SIMPLEX_VIEW_PATH } from '../../config'
 
 export default function Menu() {
   return (
@@ -13,20 +13,28 @@ export default function Menu() {
           Hamburguesas premium, cortes de parrilla, ensaladas, tequeños, café y bebidas.
         </p>
 
-        <a
-          className={styles.cta}
-          href={MENU_PATH}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Ver menú (PDF)
-        </a>
-        <p className={styles.note}>Precios en USD · Los mismos en todas las sedes</p>
-
-        <div className={styles.placeholder} aria-hidden="true">
-          <p className={styles.placeholderTag}>Próximamente</p>
-          <p className={styles.placeholderText}>Los favoritos de la cancha</p>
+        <div className={styles.ctas}>
+          <a
+            className={styles.cta}
+            href={MENU_VIEW_PATH}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver menú (PDF)
+          </a>
+          <a
+            className={styles.ctaGhost}
+            href={MENU_SIMPLEX_VIEW_PATH}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Menú Simplex (PDF)
+          </a>
         </div>
+        <p className={styles.note}>
+          Precios en USD · Los mismos en todas las sedes · Menú Simplex lunes a viernes hasta las
+          7:00 PM
+        </p>
       </div>
     </section>
   )

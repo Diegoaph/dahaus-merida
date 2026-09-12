@@ -120,15 +120,36 @@ export default function Locations() {
             <MapEmbed src={MAP_EMBEDS.metro} title="Mapa de Dahaus Metroatletik" />
           </div>
         </article>
-      </div>
 
-      <aside className={styles.deck} aria-label="Dahaus Deck">
-        <span className={styles.deckTag}>En remodelación · Próximamente</span>
-        <p className={styles.deckText}>
-          Dahaus Deck, en Ejido, junto a Empire Keeway. Estamos preparando el espacio para
-          recibirte de nuevo.
-        </p>
-      </aside>
+        <article className={styles.cardDeck} aria-labelledby="deck-name">
+          <div className={styles.photoWrap}>
+            <img
+              className={`${styles.photo} ${styles.photoDeck}`}
+              src="/deck.webp"
+              alt="Fachada de Dahaus Deck en Ejido, en remodelación"
+              loading="lazy"
+              width={900}
+              height={1350}
+            />
+            <div className={styles.tape}>
+              <span className={styles.tapeLabel}>En remodelación · Próximamente</span>
+            </div>
+          </div>
+
+          <div className={styles.cardBody}>
+            <div className={styles.cardTop}>
+              <h3 id="deck-name" className={styles.cardTitle}>
+                Dahaus Deck
+              </h3>
+              <span className={styles.tag}>Próximamente</span>
+            </div>
+            <p className={styles.cardText}>
+              En Ejido, junto a Empire Keeway. Estamos preparando el espacio para recibirte de
+              nuevo.
+            </p>
+          </div>
+        </article>
+      </div>
     </section>
   )
 }

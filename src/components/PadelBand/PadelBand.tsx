@@ -10,8 +10,8 @@ export default function PadelBand() {
             Antes, durante y después del partido.
           </h2>
           <p className={styles.body}>
-            Dahaus vive dentro de Garana Padel Club y Metro Atletik. Bajás de la cancha,
-            estirás las piernas y en dos pasos la parrilla ya está al fuego.
+            Dahaus vive dentro de Garana Padel Club y Metro Atletik. Sales de la cancha,
+            estiras las piernas y en dos pasos la parrilla ya está al fuego.
           </p>
           <p className={styles.body}>
             Por eso el pan de papa, las hamburguesas premium y las parrillas no son solo comida:

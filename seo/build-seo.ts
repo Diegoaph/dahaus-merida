@@ -28,7 +28,7 @@ function restaurant(domain: string, name: string, slug: string, image: string, d
     servesCuisine: ['hamburguesas', 'parrillas'],
     telephone: '+584147009402',
     priceRange: '$$',
-    menu: `${domain}/menu.pdf`,
+    menu: [`${domain}/menu.pdf`, `${domain}/menu-simplex.pdf`],
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Mérida',
@@ -82,6 +82,12 @@ function buildSitemap(domain: string) {
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>${cleanDomain}/menu-simplex.pdf</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>
 `
 }
@@ -103,6 +109,7 @@ function buildLlms(domain: string, env: Env) {
 
 - [Página principal](${cleanDomain}/)
 - [Menú (PDF)](${cleanDomain}/menu.pdf)
+- [Menú Simplex (PDF)](${cleanDomain}/menu-simplex.pdf): solo lunes a viernes, hasta las 7:00 PM.
 
 ## Sedes
 
