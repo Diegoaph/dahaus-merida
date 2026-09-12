@@ -1,0 +1,63 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.section {
+  @include section-space;
+  background-color: $color-canvas-sand;
+}
+
+.inner {
+  @include container;
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 4rem);
+  align-items: center;
+
+  @media (min-width: $bp-desktop) {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(3rem, 7vw, 5rem);
+  }
+}
+
+.eyebrow {
+  @include eyebrow;
+}
+
+.title {
+  @include section-heading;
+}
+
+.body {
+  @include body-copy;
+  max-width: 46ch;
+  margin-bottom: 2rem;
+}
+
+.cta {
+  @include cta-amber;
+  font-size: 1.0625rem;
+  padding: 0.95rem 1.9rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 0.62fr 0.38fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.photoMain,
+.photoSide {
+  width: 100%;
+  object-fit: cover;
+  border-radius: $radius-image;
+}
+
+.photoMain {
+  aspect-ratio: 2 / 3;
+}
+
+.photoSide {
+  aspect-ratio: 2 / 3;
+  align-self: start;
+  margin-top: 3rem;
+}

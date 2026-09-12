@@ -1,46 +1,63 @@
 import styles from './Footer.module.scss'
+import { INSTAGRAM, WHATSAPP_URLS } from '../../config'
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className="container">
-        <p className={styles.copy}>© {new Date().getFullYear()} Todos los derechos reservados DAHAUS.</p>
-      </div>
-      <div className="container">
-      <p>
-        Desarrollo web Diego Pacheco 2025{' '}
-        <a
-          className={styles.copy}
-          href='mailto:Dev.DiegoPacheco@gmail.com?subject=¡¡Me%20ha%20gustado%20una%20de%20tus%20webs!!&amp;body=%20Diego,%20Me%20gustar%C3%ADa%20saber%20mas%20sobre%20tus%20servicios'>
-          <b>&lt;D/&gt;</b>
-        </a>
-      </p>
-      </div>
-      <div className="container">
+      <div className={styles.inner}>
+        <div className={styles.brand}>
+          <p className={styles.wordmark}>DAHAUS</p>
+          <p className={styles.tagline}>
+            Hamburguesas premium junto a las canchas de padel de Mérida.
+          </p>
+          <div className={styles.socials}>
+            <a
+              className={styles.social}
+              href={WHATSAPP_URLS.delivery}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp
+            </a>
+            <a
+              className={styles.social}
+              href={INSTAGRAM.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {INSTAGRAM.user}
+            </a>
+          </div>
+        </div>
 
-<p>
- {' '}
-  <a
-    className={styles.copy}
-    href='mailto:Dahausrrhh2025@gmail.com?subject=¡¡Me%20gustar%C3%ADa%20trabajar%20en%20Dahaus!!&amp;body=%20Hola,%20Me%20gustar%C3%ADa%20formar%20parte%20del%20equipo%20DAHAUS'>
-    <b> Trabaja con nosotros.</b>
-  </a>
-</p>
-</div>
-      <div className="container">
-
-      <a
-        href="https://www.instagram.com/dahausmerida?igsh=bzVmbnl1ZnJ6Mjhi"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.instagram}
-        aria-label="Instagram de Dahaus Mérida"
-      >
-        <img src="/instagram_icon.svg" alt="Instagram Icon" width={24} height={24} />
-      </a>
+        <div className={styles.hours}>
+          <p className={styles.hoursTitle}>Horarios</p>
+          <dl className={styles.hoursList}>
+            <div className={styles.hoursRow}>
+              <dt>Garana</dt>
+              <dd>Todos los días, 12:00 a 11:30 p.m.</dd>
+            </div>
+            <div className={styles.hoursRow}>
+              <dt>Metroatletik</dt>
+              <dd>Jueves a martes, 4:30 p.m. a 11:30 p.m.</dd>
+            </div>
+            <div className={styles.hoursRow}>
+              <dt>Delivery</dt>
+              <dd>Jueves a martes, 4:30 p.m. a 10:30 p.m.</dd>
+            </div>
+          </dl>
+        </div>
       </div>
 
-     
+      <div className={styles.bottom}>
+        <p>© {new Date().getFullYear()} Dahaus Mérida. Todos los derechos reservados.</p>
+        <p>
+          Desarrollo web{' '}
+          <a className={styles.devLink} href="mailto:Dev.DiegoPacheco@gmail.com">
+            Diego Pacheco
+          </a>
+        </p>
+      </div>
     </footer>
-  );
+  )
 }

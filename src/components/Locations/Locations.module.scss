@@ -1,0 +1,133 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.section {
+  @include container;
+  @include section-space;
+}
+
+.head {
+  max-width: 20ch;
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.eyebrow {
+  @include eyebrow;
+}
+
+.title {
+  @include section-heading;
+}
+
+.cards {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 5rem);
+}
+
+.card {
+  background-color: $color-canvas-sand;
+  border-radius: $radius-image;
+  border: 1px solid rgba(28, 26, 23, 0.12);
+  overflow: hidden;
+
+  @media (min-width: $bp-desktop) {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    overflow: visible;
+  }
+}
+
+.photoLink {
+  display: block;
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 2 / 2.6;
+  object-fit: cover;
+  border-radius: $radius-image $radius-image 0 0;
+
+  @media (min-width: $bp-desktop) {
+    aspect-ratio: auto;
+    height: 100%;
+    border-radius: $radius-image 0 0 $radius-image;
+  }
+}
+
+.cardBody {
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  justify-content: center;
+  background-color: $color-cement;
+
+  @media (min-width: $bp-desktop) {
+    border-radius: 0 $radius-image $radius-image 0;
+  }
+}
+
+.cardTop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.cardTitle {
+  font-family: $font-display;
+  font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: $color-carbon-ink;
+}
+
+.cardText {
+  @include body-copy;
+  font-size: 1rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.mapLink {
+  @include cta-outline;
+  font-size: 0.9375rem;
+  padding: 0.7rem 1.3rem;
+}
+
+.orderLink {
+  @include cta-amber;
+  font-size: 0.9375rem;
+  padding: 0.7rem 1.3rem;
+}
+
+.deck {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border: 1.5px dashed rgba(28, 26, 23, 0.35);
+  border-radius: $radius-image;
+  background-color: rgba(219, 214, 203, 0.5);
+  max-width: 42rem;
+}
+
+.deckTag {
+  display: inline-flex;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $color-woodstone;
+}
+
+.deckText {
+  @include body-copy;
+  font-size: 1rem;
+}

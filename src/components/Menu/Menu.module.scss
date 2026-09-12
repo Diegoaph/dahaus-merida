@@ -1,0 +1,61 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.section {
+  @include section-space;
+  background-color: $color-cement;
+  border-block: 1px solid rgba(28, 26, 23, 0.12);
+}
+
+.inner {
+  @include container;
+}
+
+.eyebrow {
+  @include eyebrow;
+}
+
+.title {
+  @include section-heading;
+}
+
+.lead {
+  @include body-copy;
+  max-width: 48ch;
+  margin-bottom: 2rem;
+}
+
+.cta {
+  @include cta-amber;
+  font-size: 1.125rem;
+  padding: 1rem 2rem;
+}
+
+.note {
+  margin-top: 0.9rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: $color-ink-muted;
+}
+
+.placeholder {
+  max-width: 520px;
+  margin-top: clamp(2.5rem, 6vw, 3.5rem);
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  border: 1.5px dashed rgba(28, 26, 23, 0.3);
+  border-radius: $radius-image;
+  background-color: rgba(240, 233, 219, 0.45);
+}
+
+.placeholderTag {
+  @include eyebrow($color-woodstone);
+  margin-bottom: 0.4rem;
+}
+
+.placeholderText {
+  font-family: $font-display;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  line-height: 1;
+  color: $color-carbon-ink;
+}

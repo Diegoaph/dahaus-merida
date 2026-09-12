@@ -1,838 +1,119 @@
 @use './variables' as *;
+@use 'sass:color';
 
+/* Micro-transición estándar (hover) */
 @mixin transition-base {
-  transition: all 200ms ease;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease,
+    transform 180ms ease, opacity 180ms ease;
 }
 
-@mixin focus-ring {
-  outline: 2px solid var(--highlight);
-  outline-offset: 2px;
+/* Foco visible: ámbar, respeta contraste sobre cada superficie */
+@mixin focus-ring($offset: 3px) {
+  outline: 2px solid $color-mustard-amber;
+  outline-offset: $offset;
 }
 
-@mixin btn-base {
+@mixin focus-ring-dark($offset: 3px) {
+  outline: 2px solid $color-carbon-ink;
+  outline-offset: $offset;
+  box-shadow: 0 0 0 4px $color-mustard-amber;
+}
+
+/* Botón base sin estilos de navegador */
+@mixin button-reset {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1rem;
+  gap: 0.5rem;
+  padding: 0;
   border: none;
-  border-radius: 6px;
-  font-family: var(--font-base);
-  font-weight: 600;
+  background: none;
   cursor: pointer;
+  font-family: $font-body;
+  text-decoration: none;
   @include transition-base;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+/* Píldora CTA */
+@mixin cta-pill {
+  @include button-reset;
+  border-radius: $radius-pill;
+  padding: 0.8rem 1.6rem;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Botón primario ámbar */
+@mixin cta-amber {
+  @include cta-pill;
+  background-color: $color-mustard-amber;
+  color: $color-carbon-ink;
+  border: 1.5px solid $color-carbon-ink;
 
   &:hover {
-    background-color: var(--button-hover-bg);
-    box-shadow: 0 0 8px rgba(255, 193, 7, 0.35);
+    background-color: color.mix($color-carbon-ink, $color-mustard-amber, 8%);
   }
-  &:active {
-    background-color: var(--button-active-bg);
-    box-shadow: 0 0 4px rgba(0,0,0,0.25);
-    filter: brightness(0.98);
-  }
-  &:disabled,
-  &[aria-disabled='true'] {
-    background-color: var(--disabled);
-    color: var(--secondary-text);
-    opacity: 0.6;
-    cursor: not-allowed;
-    box-shadow: none;
+  &:focus-visible {
+    @include focus-ring-dark;
   }
 }
 
-@mixin link-base {
-  color: var(--link-color);
-  font-weight: 900;
-  @include transition-base;
+/* Botón secundario: contorno carbon sobre superficie clara */
+@mixin cta-outline {
+  @include cta-pill;
+  background-color: transparent;
+  color: $color-carbon-ink;
+  border: 1.5px solid $color-carbon-ink;
 
   &:hover {
-    text-decoration-thickness: 2px;
-    text-shadow: 0 0 6px rgba(255, 193, 7, 0.45);
-  }
-  &:active {
-    color: #FFB300;
-  }
-  &:focus-visible { @include focus-ring; }
-}
-
-@mixin texture-bg($type: cement) {
-  @if $type == cement {
-    background-color: var(--background);
-    background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
-    background-size: 12px 12px;
-  } @else if $type == wood {
-    background-image: linear-gradient(90deg, rgba(120,80,40,0.08) 0%, rgba(80,50,20,0.08) 100%);
-  } @else if $type == metal {
-    background-image: linear-gradient(180deg, rgba(18,18,18,0.15), rgba(18,18,18,0.05));
+    background-color: rgba(28, 26, 23, 0.08);
   }
 }
 
-@mixin sticky-header {
-  position: sticky;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  backdrop-filter: saturate(160%) blur(6px);
-  @include transition-base;
-
-  &.is-top {
-    background-color: transparent;
-  }
-  &.is-scrolled {
-    background-color: #292929;
-  }
-}
-
+/* Contenedor de página */
 @mixin container {
   width: 100%;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 0 1rem;
-  @media (min-width: $bp-tablet) { max-width: 720px; }
-  @media (min-width: $bp-desktop) { max-width: 1120px; }
+  padding: 0 clamp(1.25rem, 5vw, 2.5rem);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Padding vertical editorial de sección */
+@mixin section-space {
+  padding-block: clamp(4rem, 8vw, 6.25rem);
+}
+
+/* Etiqueta de apoyo: Lato 700, mayúsculas, tracking ancho */
+@mixin eyebrow($color: $color-carbon-ink) {
+  margin: 0 0 0.75rem;
+  font-family: $font-body;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $color;
+}
+
+/* Titular display en secciones */
+@mixin section-heading($size: clamp(2.75rem, 6vw, 4.5rem)) {
+  margin: 0 0 1.25rem;
+  font-family: $font-display;
+  font-size: $size;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: $color-carbon-ink;
+  text-transform: uppercase;
+}
+
+/* Texto de cuerpo */
+@mixin body-copy {
+  font-family: $font-body;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: $color-carbon-ink;
+}

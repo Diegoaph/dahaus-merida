@@ -1,88 +1,78 @@
 import { useEffect, useRef, useState } from 'react'
 import styles from './Navbar.module.scss'
+import { WHATSAPP_URLS } from '../../config'
 
-const sections = [
+const NAV_LINKS = [
   { id: 'hero', label: 'Inicio' },
-  { id: 'dahaus-deck', label: 'Dahaus Deck' },
-  { id: 'dahaus-garana', label: 'Dahaus Garana' },
-  { id: 'dahaus-metroatletik', label: 'Dahaus Metroatletik' },
-  { id: 'dahaus-events', label: 'Dahaus en tus eventos' },{id:"dahaus-delivery", label:"Pedidos a domicilio"}
+  { id: 'sedes', label: 'Sedes' },
+  { id: 'menu', label: 'Menú' },
+  { id: 'eventos', label: 'Eventos' },
+  { id: 'delivery', label: 'Delivery' },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const menuRef = useRef<HTMLDivElement | null>(null)
-  const buttonRef = useRef<HTMLButtonElement | null>(null)
-
-  useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 8)
-    }
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  const panelRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     if (!open) return
-    const handleClickOutside = (e: MouseEvent) => {
-      const target = e.target as Node
-      if (menuRef.current && !menuRef.current.contains(target) && buttonRef.current && !buttonRef.current.contains(target)) {
-        setOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
+    const close = () => setOpen(false)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close()
+    })
+    return () => document.removeEventListener('keydown', close)
   }, [open])
 
-  const handleNav = (id: string) => {
-    const el = document.getElementById(id)
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      setOpen(false)
-    }
-  }
-
   return (
-    <header className={`${styles.navbar} ${scrolled ? 'is-scrolled' : 'is-top'}`}> 
-      <div className={styles.logo}>
-        <img src="dahausmerida.jpg" alt="Logo" width={28} height={28} />
-        <span>DAHAUS</span>
-      </div>
+    <header className={styles.header}>
+      <a href="#hero" className={styles.brand}>
+        <img className={styles.mark} src="/favicon.png" alt="" width={34} height={34} />
+        <span className={styles.wordmark}>DAHAUS</span>
+      </a>
 
-      {/* Links desktop */}
-      <nav className={styles.links} aria-label="Secciones">
-        {sections.map(s => (
-          <button key={s.id} onClick={() => handleNav(s.id)} className={styles.menuItem}>
-            {s.label}
-          </button>
+      <nav className={styles.links} aria-label="Secciones de la página">
+        {NAV_LINKS.map((link) => (
+          <a key={link.id} className={styles.link} href={`#${link.id}`}>
+            {link.label}
+          </a>
         ))}
       </nav>
 
-      {/* Hamburguesa móvil/tablet */}
+      <a className={styles.cta} href={WHATSAPP_URLS.delivery} target="_blank" rel="noopener noreferrer">
+        Pide por WhatsApp
+      </a>
+
       <button
-        ref={buttonRef}
-        className={styles.hamburgerButton}
-        aria-label="Abrir menú"
-        aria-controls="navbar-menu"
+        type="button"
+        className={styles.burger}
+        aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+        aria-controls="nav-panel"
         aria-expanded={open}
-        onClick={() => setOpen(v => !v)}
+        onClick={() => setOpen((v) => !v)}
       >
-        ⋮
+        <span className={styles.burgerLine} />
+        <span className={styles.burgerLine} />
+        <span className={styles.burgerLine} />
       </button>
 
       {open && (
-        <div id="navbar-menu" role="menu" className={styles.menuPanel} ref={menuRef}>
-          {sections.map(s => (
-            <button
-              key={s.id}
-              role="menuitem"
-              className={styles.menuItem}
-              onClick={() => handleNav(s.id)}
-            >
-              {s.label}
-            </button>
-          ))}
+        <div id="nav-panel" ref={panelRef} className={styles.panel}>
+          <nav className={styles.panelLinks} aria-label="Menú de navegación">
+            {NAV_LINKS.map((link) => (
+              <a key={link.id} className={styles.panelLink} href={`#${link.id}`} onClick={() => setOpen(false)}>
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <a
+            className={styles.cta}
+            href={WHATSAPP_URLS.delivery}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+          >
+            Pide por WhatsApp
+          </a>
         </div>
       )}
     </header>

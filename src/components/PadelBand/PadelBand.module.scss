@@ -1,0 +1,55 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.band {
+  background-color: $color-padel-green;
+  @include section-space;
+}
+
+.inner {
+  @include container;
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+
+  @media (min-width: $bp-tablet) {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+  }
+}
+
+.eyebrow {
+  @include eyebrow;
+}
+
+.title {
+  @include section-heading;
+  margin-bottom: 1.5rem;
+}
+
+.body {
+  @include body-copy;
+  max-width: 52ch;
+
+  & + .body {
+    margin-top: 1rem;
+  }
+}
+
+.figure {
+  margin: 0;
+  position: relative;
+}
+
+.photo {
+  border-radius: $radius-image;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  width: 100%;
+}
+
+@media (min-width: $bp-desktop) {
+  .figure {
+    margin-top: 3rem;
+  }
+}

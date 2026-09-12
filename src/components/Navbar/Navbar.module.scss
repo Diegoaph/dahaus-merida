@@ -1,77 +1,128 @@
-@use '../../styles/_variables' as *;
-@use '../../styles/_mixins' as *;
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
-.navbar {
-  @include sticky-header;
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
-  
-}
+  gap: 2rem;
+  padding: 0.65rem clamp(1.25rem, 5vw, 2.5rem);
+  background-color: $color-canvas-sand;
+  border-bottom: 1px solid $color-carbon-ink;
 
-.logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-heading);
-  color: var(--primary-text);
-  border-radius: 99rem;
-  padding-right: 1rem;
-  overflow: hidden;
-  font-size: x-large;
-    font-size: 2rem;
-    color: whitesmoke;
-    text-shadow: 
-      -1px -1px 0 black,  
-      1px -1px 0 black,
-      -1px 1px 0 black,
-      1px 1px 0 black,
-      0 0 6px rgba(0, 0, 0, 0.6);
-  }
-
-
-.hamburgerButton {
-  background-color: transparent;
-  color: var(--secondary-text);
-  border:none;
-  font-size: xx-large;
-  &:hover{
-    transform:scale(1.5);
+  @media (min-width: $bp-desktop) {
+    gap: 3rem;
   }
 }
 
-.menuPanel {
-  display: flex;
-  flex-direction: column;
-  gap:0.5rem;
-  position: absolute;
-  right: 0.75rem;
-  top: 3.5rem;
-  background: var(--background);
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 8px;
-  padding: 0.5rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-  @include transition-base;
+.brand {
+  @include button-reset;
+  gap: 0.6rem;
+  margin-right: auto;
+
+  @media (min-width: $bp-desktop) {
+    margin-right: 0;
+  }
 }
 
-.menuItem {
-  @include link-base;
-  display: block;
-  padding: 0.5rem 0.75rem;
-  width: 100%;
-  border:none;
-  border-radius: 5px 0;
-  cursor: pointer;background-color: var(--button-bg);
+.mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid $color-carbon-ink;
+}
+
+.wordmark {
+  font-family: $font-display;
+  font-size: 1.75rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: $color-carbon-ink;
 }
 
 .links {
   display: none;
+  gap: 1.75rem;
+  @media (min-width: $bp-desktop) {
+    display: flex;
+    margin-right: auto;
+  }
 }
 
-@media (min-width: $bp-desktop) {
-  .hamburgerButton { display: none; }
-  .links { display: flex; gap: 1rem; }
-  .menuPanel { display: none; }
+.link {
+  @include button-reset;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: $color-carbon-ink;
+  padding: 0.25rem 0;
+
+  &:hover {
+    color: $color-woodstone;
+  }
+}
+
+.cta {
+  @include cta-outline;
+  font-size: 0.9375rem;
+  padding: 0.7rem 1.35rem;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $color-mustard-amber;
+  }
+}
+
+.burger {
+  @include button-reset;
+  flex-direction: column;
+  gap: 0.3rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: $bp-desktop) {
+    display: none;
+  }
+}
+
+.burgerLine {
+  width: 1.45rem;
+  height: 2px;
+  background-color: $color-carbon-ink;
+  border-radius: 999px;
+}
+
+.panel {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: clamp(1rem, 5vw, 2.5rem);
+  min-width: 15rem;
+  padding: 0.75rem;
+  background-color: $color-canvas-sand;
+  border: 1px solid $color-carbon-ink;
+  border-radius: $radius-control;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.panelLinks {
+  display: flex;
+  flex-direction: column;
+}
+
+.panelLink {
+  @include button-reset;
+  justify-content: flex-start;
+  padding: 0.75rem 0.5rem;
+  font-weight: 700;
+  color: $color-carbon-ink;
+  border-bottom: 1px solid rgba(28, 26, 23, 0.12);
+
+  &:hover {
+    background-color: $color-cement;
+  }
 }
