@@ -11,7 +11,8 @@ export default function Hero() {
             Donde termina el partido, empieza Dahaus.
           </h1>
           <p className={styles.sub}>
-            Hamburguesas premium junto a las canchas de padel de Mérida y delivery a toda la ciudad.
+            Hamburguesas premium en Mérida, Venezuela, junto a las canchas de padel y con delivery
+            a toda la ciudad y Ejido.
           </p>
           <div className={styles.ctas}>
             <a className={styles.ctaGhost} href="#menu">

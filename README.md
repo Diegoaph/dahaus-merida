@@ -58,14 +58,19 @@ metadato con basura (común en exports de diseño), corregir el title:
 
 El plugin `seo/build-seo.ts` hace tres cosas en cada build:
 
-1. Inyecta en `index.html` los datos estructurados (Organization + un bloque `Restaurant`
-   por sede con horarios reales y `servesCuisine`). Horarios alineados con el Google
-   Business Profile.
+1. Inyecta en `index.html` los datos estructurados: `Organization` (con `contactPoint` y
+   `sameAs`) + un bloque `Restaurant` por sede con `geo` (coordenadas reales desde `.env`),
+   `hasMap`, `address` completo (postal 5101, `VE`), `areaServed` (Mérida y Ejido), horarios y
+   `servesCuisine`, más un `FAQPage` que debe coincidir verbatim con el bloque `Visit` visible
+   en la página.
 2. Genera `sitemap.xml` (página principal + los 4 menús).
-3. Genera `llms.txt` (H1, resumen y links clave).
+3. Genera `llms.txt` (resumen, links clave y direcciones de las sedes).
 
+`index.html` declara `lang="es-VE"`, `og:locale es_VE` y las metas `geo.region=VE-L` /
+`geo.placename` / `geo.position` para reforzar que es Mérida, Venezuela (no Mérida, México).
 El robots.txt es estático en `public/` y permite explícitamente GPTBot, ClaudeBot,
-PerplexityBot y otros crawlers de IA.
+PerplexityBot y otros crawlers de IA. `VITE_GBP_URL` agrega el perfil de Google Business a
+`sameAs` cuando esté disponible.
 
 ## Despliegue
 

@@ -44,9 +44,9 @@ export default function Locations() {
               <OpeningBadge schedule={GARANA} />
             </div>
             <p className={styles.cardText}>
-              Dentro del Garana Padel Club, en la avenida Andrés Bello. Abierto todos los días
-              de {formatClock(GARANA.opens)} a {formatClock(GARANA.closes)}, ahora también con
-              desayunos.
+              Dentro del Garana Padel Club, en la avenida Andrés Bello, Mérida, Venezuela. Abierto
+              todos los días de {formatClock(GARANA.opens)} a {formatClock(GARANA.closes)}, ahora
+              también con desayunos.
             </p>
             <div className={styles.actions}>
               <a
@@ -97,8 +97,9 @@ export default function Locations() {
             </div>
             <p className={styles.cardText}>
               Dentro del Metro Atletik, en la avenida principal Zumba, junto al Colegio de
-              Abogados. Desde acá se gestionan todos los pedidos de delivery. Abierto de martes
-              a domingo, de {formatClock(METRO.opens)} a {formatClock(METRO.closes)}.
+              Abogados, en Mérida, Venezuela. Desde acá se gestionan todos los pedidos de
+              delivery. Abierto de martes a domingo, de {formatClock(METRO.opens)} a{' '}
+              {formatClock(METRO.closes)}.
             </p>
             <div className={styles.actions}>
               <a

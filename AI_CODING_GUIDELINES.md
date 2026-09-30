@@ -73,6 +73,18 @@ Reglas de color:
 - Imágenes con `alt` descriptivo y `loading="lazy"` cuando no son el hero. El hero va con
   carga eager vía CSS.
 
+## SEO local
+
+- La marca es de **Mérida, Venezuela** (no Mérida, México). Reforzar "Venezuela"/estado Mérida
+  en copy visible, metas, llms.txt y datos estructurados.
+- `html lang="es-VE"`, `og:locale es_VE`, metas `geo.region=VE-L`/`geo.placename`/`geo.position`.
+- JSON-LD (`.env` → `seo/build-seo.ts`): `Restaurant` x2 con `geo`, `hasMap`, `address`
+  (postal 5101, VE), `areaServed` (Mérida, Ejido), `sameAs` (Instagram + GBP vía `VITE_GBP_URL`),
+  `contactPoint`, y `FAQPage` (las preguntas deben coincidir **verbatim** con el bloque visible
+  `src/components/Visit/Visit.tsx`).
+- NAP visible: bloque `Visit` (direcciones, teléfono) y footer. Mantener idéntico en web, GBP e Instagram.
+- Coordenadas reales en `.env` (`VITE_GEO_*`); si cambia la sede, geocodificar antes de editar.
+
 ## Horarios
 
 - **Garana**: todos los días 8:00 a 23:30. Ahora también con desayunos (carta llega el lunes; botón "Carta de desayunos" abre un modal "en camino").

@@ -1,5 +1,5 @@
 import styles from './Footer.module.scss'
-import { INSTAGRAM, DEV_SITE, WHATSAPP_URLS } from '../../config'
+import { COMPANY, INSTAGRAM, DEV_SITE, WHATSAPP_URLS } from '../../config'
 
 export default function Footer() {
   return (
@@ -8,7 +8,7 @@ export default function Footer() {
         <div className={styles.brand}>
           <p className={styles.wordmark}>DAHAUS</p>
           <p className={styles.tagline}>
-            Hamburguesas premium junto a las canchas de padel de Mérida.
+            Hamburguesas premium junto a las canchas de padel de Mérida, Venezuela.
           </p>
           <div className={styles.socials}>
             <a
@@ -46,6 +46,9 @@ export default function Footer() {
               <dd>Todos los días, 12:00 a 10:00 p.m.</dd>
             </div>
           </dl>
+          <p className={styles.city}>
+            {COMPANY.city} · {COMPANY.phone}
+          </p>
         </div>
       </div>
 

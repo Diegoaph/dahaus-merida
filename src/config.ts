@@ -55,6 +55,33 @@ export const MAP_EMBEDS = {
   metro: env.VITE_MAP_EMBED_METROATLETIK || 'https://www.google.com/maps?q=Metro%20Atletik%20M%C3%A9rida&output=embed',
 }
 
+export const COMPANY = {
+  name: 'Dahaus Mérida',
+  city: 'Mérida, Venezuela',
+  phone: '+58 414-700-9402',
+  whatsapp: `https://wa.me/${WHATSAPP_NUMBER}`,
+  gbpUrl: env.VITE_GBP_URL || '',
+}
+
+export const LOCATIONS_INFO = [
+  {
+    id: 'garana',
+    name: 'Dahaus Garana',
+    address:
+      env.VITE_ADDRESS_GARANA ||
+      'Avenida Andrés Bello, Urb. El Corral, Mérida 5101, Venezuela',
+    hours: 'Todos los días, 8:00 a.m. a 11:30 p.m.',
+  },
+  {
+    id: 'metro',
+    name: 'Dahaus Metroatletik',
+    address:
+      env.VITE_ADDRESS_METRO ||
+      'Avenida Principal de Zumba, vía Estadio Metropolitano, Mérida 5101, Venezuela',
+    hours: 'Martes a domingo, 3:00 p.m. a 11:30 p.m.',
+  },
+] as const
+
 export const WHATSAPP_URLS = {
   delivery: `https://wa.me/${WHATSAPP_NUMBER}?text=${DELIVERY_MESSAGE}`,
   event: `https://wa.me/${WHATSAPP_NUMBER}?text=${EVENT_MESSAGE}`,

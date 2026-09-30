@@ -89,6 +89,13 @@
   }
 }
 
+.city {
+  margin: 1.25rem 0 0;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: rgba(240, 233, 219, 0.7);
+}
+
 .bottom {
   @include container;
   border-top: 1px solid rgba(240, 233, 219, 0.25);

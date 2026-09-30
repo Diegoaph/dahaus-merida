@@ -4,9 +4,18 @@ import { loadEnv } from 'vite'
 type Env = Record<string, string>
 
 const SITE_NAME = 'Dahaus Mérida'
+const COUNTRY = 'VE'
+const POSTAL_CODE = '5101'
 
 const GARANA_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 const METRO_DAYS = ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
+type LocationData = {
+  streetAddress: string
+  latitude: string
+  longitude: string
+  mapUrl: string
+}
 
 function daySpecification(days: string[], opens: string, closes: string) {
   return {
@@ -17,7 +26,25 @@ function daySpecification(days: string[], opens: string, closes: string) {
   }
 }
 
-function restaurant(domain: string, name: string, slug: string, image: string, days: string[], opens: string, closes: string, description: string) {
+function serviceArea() {
+  return [
+    { '@type': 'City', name: 'Mérida' },
+    { '@type': 'City', name: 'Ejido' },
+  ]
+}
+
+function restaurant(
+  domain: string,
+  name: string,
+  slug: string,
+  image: string,
+  days: string[],
+  opens: string,
+  closes: string,
+  description: string,
+  location: LocationData,
+  sameAs: string[],
+) {
   return {
     '@type': 'Restaurant',
     '@id': `${domain}/#${slug}`,
@@ -25,7 +52,7 @@ function restaurant(domain: string, name: string, slug: string, image: string, d
     url: domain,
     image: `${domain}/${image}`,
     description,
-    servesCuisine: ['hamburguesas', 'parrillas'],
+    servesCuisine: ['Hamburguesas', 'Hamburguesería', 'Parrillas', 'Desayunos'],
     telephone: '+584147009402',
     priceRange: '$$',
     menu: [
@@ -34,18 +61,105 @@ function restaurant(domain: string, name: string, slug: string, image: string, d
       `${domain}/menu-bebidas.pdf`,
       `${domain}/menu-simplex.pdf`,
     ],
+    sameAs,
     address: {
       '@type': 'PostalAddress',
+      streetAddress: location.streetAddress,
       addressLocality: 'Mérida',
       addressRegion: 'Mérida',
-      addressCountry: 'VE',
+      postalCode: POSTAL_CODE,
+      addressCountry: COUNTRY,
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: parseFloat(location.latitude),
+      longitude: parseFloat(location.longitude),
+    },
+    hasMap: location.mapUrl,
+    areaServed: serviceArea(),
     openingHoursSpecification: [daySpecification(days, opens, closes)],
   }
 }
 
-function buildStructuredData(domain: string) {
+const FAQS = [
+  {
+    q: '¿Dónde está Dahaus?',
+    a: 'Estamos en el Garana Padel Club, avenida Andrés Bello, urb. El Corral, Mérida 5101, Venezuela, y en Metro Atletik, avenida principal de Zumba, vía Estadio Metropolitano. También gestionamos delivery a toda Mérida y Ejido.',
+  },
+  {
+    q: '¿Qué horarios tienen?',
+    a: 'Dahaus Garana abre todos los días de 8:00 a.m. a 11:30 p.m., con desayunos. Dahaus Metroatletik abre de martes a domingo de 3:00 p.m. a 11:30 p.m.',
+  },
+  {
+    q: '¿Hacen delivery y a dónde llegan?',
+    a: 'Sí, todos los días de 12:00 a 10:00 p.m. Llevamos la parrilla a toda Mérida y Ejido. Pedís por WhatsApp y te confirmamos en el momento.',
+  },
+  {
+    q: '¿Qué es el pan de papa?',
+    a: 'Es nuestro pan artesanal horneado a diario, el sello de todas las hamburguesas de Dahaus.',
+  },
+  {
+    q: '¿Hacen desayunos?',
+    a: 'Sí, en Dahaus Garana ya servimos desayunos desde las 8:00 a.m. La carta completa de desayunos estrena próximamente.',
+  },
+]
+
+function faqPage() {
+  return {
+    '@type': 'FAQPage',
+    inLanguage: 'es',
+    mainEntity: FAQS.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  }
+}
+
+function organization(domain: string, sameAs: string[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: SITE_NAME,
+    url: `${domain}/`,
+    logo: `${domain}/dahausmerida.jpg`,
+    telephone: '+584147009402',
+    sameAs,
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+584147009402',
+      contactType: 'customer service',
+      availableLanguage: 'es',
+    },
+  }
+}
+
+function buildStructuredData(domain: string, env: Env) {
   const cleanDomain = domain.replace(/\/+$/, '')
+  const instagram = env.VITE_INSTAGRAM_URL || 'https://www.instagram.com/dahausmerida'
+  const gbp = env.VITE_GBP_URL
+  const sameAs = gbp ? [instagram, gbp] : [instagram]
+
+  const garana: LocationData = {
+    streetAddress:
+      env.VITE_ADDRESS_GARANA || 'Avenida Andrés Bello, Urb. El Corral, Mérida 5101, Venezuela',
+    latitude: env.VITE_GEO_GARANA_LAT || '8.5741921',
+    longitude: env.VITE_GEO_GARANA_LNG || '-71.1751326',
+    mapUrl: env.VITE_MAP_GARANA || '',
+  }
+
+  const metro: LocationData = {
+    streetAddress:
+      env.VITE_ADDRESS_METRO ||
+      'Avenida Principal de Zumba, vía Estadio Metropolitano, Mérida 5101, Venezuela',
+    latitude: env.VITE_GEO_METRO_LAT || '8.5698244',
+    longitude: env.VITE_GEO_METRO_LNG || '-71.1804988',
+    mapUrl: env.VITE_MAP_METROATLETIK || '',
+  }
+
   return [
     restaurant(
       cleanDomain,
@@ -55,7 +169,9 @@ function buildStructuredData(domain: string) {
       GARANA_DAYS,
       '08:00',
       '23:30',
-      'Hamburguesas premium con pan de papa, parrillas, ensaladas, café, desayunos y tequeños dentro del Garana Padel Club, en la avenida Andrés Bello, Mérida. Abierto todos los días de 8:00 a 23:30.',
+      'Hamburguesas premium con pan de papa, parrillas, ensaladas, café, desayunos y tequeños dentro del Garana Padel Club, avenida Andrés Bello, Mérida, Venezuela. Abierto todos los días de 8:00 a 23:30.',
+      garana,
+      sameAs,
     ),
     restaurant(
       cleanDomain,
@@ -65,8 +181,11 @@ function buildStructuredData(domain: string) {
       METRO_DAYS,
       '15:00',
       '23:30',
-      'Hamburguesas premium con pan de papa, parrillas y más dentro del complejo deportivo Metro Atletik, en la avenida principal Zumba, Mérida, junto al Colegio de Abogados. Atiende los pedidos de delivery y envíos a domicilio a toda Mérida y Ejido. Abierto de martes a domingo de 15:00 a 23:30.',
+      'Hamburguesas premium con pan de papa, parrillas y más dentro del complejo deportivo Metro Atletik, en la avenida principal Zumba, junto al Colegio de Abogados, en Mérida, Venezuela. Atiende los pedidos de delivery y envíos a domicilio a toda Mérida y Ejido. Abierto de martes a domingo de 15:00 a 23:30.',
+      metro,
+      sameAs,
     ),
+    faqPage(),
   ]
 }
 
@@ -117,10 +236,15 @@ function buildLlms(domain: string, env: Env) {
   const instagramUrl = env.VITE_INSTAGRAM_URL ?? 'https://www.instagram.com/dahausmerida'
   const mapGarana = env.VITE_MAP_GARANA ?? ''
   const mapMetro = env.VITE_MAP_METROATLETIK ?? ''
+  const addressGarana =
+    env.VITE_ADDRESS_GARANA || 'Avenida Andrés Bello, Urb. El Corral, Mérida 5101, Venezuela'
+  const addressMetro =
+    env.VITE_ADDRESS_METRO ||
+    'Avenida Principal de Zumba, vía Estadio Metropolitano, Mérida 5101, Venezuela'
 
   return `# ${SITE_NAME}
 
-> Hamburguesas premium junto a las canchas de padel de Mérida y delivery a toda la ciudad. Donde termina el partido, empieza Dahaus.
+> Hamburguesas premium junto a las canchas de padel de Mérida, Venezuela y delivery a toda la ciudad. Donde termina el partido, empieza Dahaus.
 
 ## Sitios
 
@@ -132,8 +256,8 @@ function buildLlms(domain: string, env: Env) {
 
 ## Sedes
 
-- [Dahaus Garana](${mapGarana}): dentro del Garana Padel Club, avenida Andrés Bello, Mérida. Todos los días de 8:00 a 23:30, ahora también con desayunos.
-- [Dahaus Metroatletik](${mapMetro}): dentro del complejo deportivo Metro Atletik, avenida principal Zumba, Mérida. De martes a domingo de 15:00 a 23:30. Gestiona el delivery a toda Mérida y Ejido.
+- [Dahaus Garana](${mapGarana}): ${addressGarana} Dentro del Garana Padel Club. Todos los días de 8:00 a 23:30, ahora también con desayunos.
+- [Dahaus Metroatletik](${mapMetro}): ${addressMetro} Dentro del complejo deportivo Metro Atletik. De martes a domingo de 15:00 a 23:30. Gestiona el delivery a toda Mérida y Ejido.
 
 ## Contacto
 
@@ -156,16 +280,12 @@ export function buildSeoPlugin(): Plugin {
     transformIndexHtml() {
       const domain = env.VITE_DOMAIN || 'https://www.dahausmerida.com'
       const cleanDomain = domain.replace(/\/+$/, '')
+      const instagram = env.VITE_INSTAGRAM_URL || 'https://www.instagram.com/dahausmerida'
+      const gbp = env.VITE_GBP_URL
+      const sameAs = gbp ? [instagram, gbp] : [instagram]
       const jsonLd = [
-        {
-          '@context': 'https://schema.org',
-          '@type': 'Organization',
-          name: SITE_NAME,
-          url: `${cleanDomain}/`,
-          logo: `${cleanDomain}/dahausmerida.jpg`,
-          telephone: '+584147009402',
-        },
-        ...buildStructuredData(cleanDomain),
+        organization(cleanDomain, sameAs),
+        ...buildStructuredData(cleanDomain, env),
       ]
       return [
         {

@@ -6,6 +6,7 @@ import Locations from './components/Locations/Locations'
 import Menu from './components/Menu/Menu'
 import Delivery from './components/Delivery/Delivery'
 import Events from './components/Events/Events'
+import Visit from './components/Visit/Visit'
 import Footer from './components/Footer/Footer'
 import Whatsapp from './components/Whatsapp/Whatsapp'
 
@@ -20,6 +21,7 @@ function App() {
         <Menu />
         <Delivery />
         <Events />
+        <Visit />
       </main>
       <Footer />
       <Whatsapp />
