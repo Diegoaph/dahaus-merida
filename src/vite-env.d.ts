@@ -22,6 +22,8 @@ interface ImportMetaEnv {
   readonly VITE_MAP_DECK: string
   readonly VITE_MAP_EMBED_GARANA: string
   readonly VITE_MAP_EMBED_METROATLETIK: string
+  readonly VITE_PREVENTA_EVENT_NAME: string
+  readonly VITE_EXCHANGE_RATE: string
 }
 
 interface ImportMeta {

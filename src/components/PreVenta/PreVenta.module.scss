@@ -1,0 +1,598 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.section {
+  @include section-space;
+  background-color: var(--color-canvas-sand);
+  margin-top: -2rem;
+}
+
+.container {
+  @include container;
+  position: relative;
+  z-index: 10;
+}
+
+.title {
+  @include section-heading;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+.subtitle {
+  @include eyebrow;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.content {
+  display: grid;
+  gap: 2rem;
+
+  @media (min-width: $bp-desktop) {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+      "hamburgers summary"
+      "whatsapp summary";
+  }
+}
+
+.hamburgers {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hamburgerGrid {
+  display: grid;
+  gap: 1.5rem;
+
+  @media (min-width: $bp-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $bp-desktop) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.ingredientsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-ink-muted);
+}
+
+.ingredient {
+  margin-bottom: 0.25rem;
+}
+
+.ingredient::before {
+  content: '•';
+  color: var(--color-mustard-amber);
+  margin-right: 0.5rem;
+}
+
+.quantityButton {
+  @include button-reset;
+  @include cta-outline;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.quantityDisplay {
+  font-weight: 700;
+  font-size: 1.125rem;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.itemSubtotal {
+  text-align: center;
+  font-weight: 700;
+  color: var(--color-carbon-ink);
+  background-color: var(--color-mustard-amber);
+  padding: 0.35rem 0.75rem;
+  border-radius: $radius-control;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.orderSummary {
+  background-color: var(--color-white-soft);
+  border-radius: $radius-image;
+  padding: 1.5rem;
+  border: 1px solid var(--color-cement);
+  height: fit-content;
+  position: sticky;
+  top: 5rem;
+  z-index: 5;
+}
+
+.summaryContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.summaryItem {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1rem;
+  padding: 0.75rem;
+  background-color: var(--color-canvas-sand);
+  border-radius: $radius-control;
+  font-size: 0.875rem;
+}
+
+.itemName {
+  font-weight: 700;
+}
+
+.itemQuantity {
+  color: var(--color-ink-muted);
+}
+
+.itemPrice {
+  justify-self: start;
+  align-self: center;
+  font-weight: 700;
+  color: var(--color-carbon-ink);
+  background-color: var(--color-mustard-amber);
+  padding: 0.1rem 0.6rem;
+  border-radius: $radius-pill;
+}
+
+.totalSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--color-cement);
+  border-radius: $radius-control;
+  margin: 1rem 0;
+}
+
+.totalLabel {
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.totalAmount {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  text-align: right;
+  color: var(--color-carbon-ink);
+  background-color: var(--color-mustard-amber);
+  padding: 0.25rem 0.75rem;
+  border-radius: $radius-control;
+}
+
+.reference {
+  text-align: center;
+  padding: 0.75rem;
+  background-color: var(--color-padel-green);
+  color: var(--color-carbon-ink);
+  border-radius: $radius-control;
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin: 1rem 0;
+}
+
+.customerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.formTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formLabel {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-carbon-ink);
+}
+
+.formInput {
+  @include button-reset;
+  @include cta-outline;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: $radius-control;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.errorMessage {
+  color: var(--color-mustard-amber);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.submitButton {
+  @include cta-amber;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-top: 1rem;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--color-ink-muted);
+}
+
+.emptyMessage {
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.confirmationModal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(28, 26, 23, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modalContent {
+  background-color: var(--color-canvas-sand);
+  border-radius: $radius-image;
+  padding: 2rem;
+  max-width: 90%;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modalTitle {
+  margin: 0 0 1.5rem;
+  font-family: $font-display;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.confirmationDetails {
+  margin-bottom: 1.5rem;
+}
+
+.confirmationDetails p {
+  margin: 0.5rem 0;
+}
+
+.modalTotal {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-carbon-ink);
+  background-color: var(--color-mustard-amber);
+  padding: 0.5rem 0.75rem;
+  border-radius: $radius-control;
+  margin-top: 1rem !important;
+}
+
+.modalActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.modalCancelButton,
+.modalConfirmButton {
+  @include cta-outline;
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  flex: 1;
+}
+
+.paymentNote {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background-color: var(--color-padel-green);
+  border-radius: $radius-control;
+  text-align: center;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+/* Acordeón de hamburguesas (cero o una abierta) */
+.hamburgerGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.accordion {
+  background-color: var(--color-white-soft);
+  border: 1px solid var(--color-cement);
+  border-radius: $radius-control;
+  overflow: hidden;
+}
+
+.accordionSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  list-style: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &::after {
+    content: '';
+    flex: 0 0 auto;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-right: 2px solid var(--color-carbon-ink);
+    border-bottom: 2px solid var(--color-carbon-ink);
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+  }
+}
+
+.accordion[open] > .accordionSummary::after {
+  transform: rotate(-135deg);
+}
+
+.accordionTitle {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.accordionName {
+  font-family: $font-display;
+  font-size: 1.125rem;
+  color: var(--color-carbon-ink);
+}
+
+.accordionPrice {
+  align-self: flex-start;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-carbon-ink);
+  background-color: var(--color-mustard-amber);
+  padding: 0.1rem 0.6rem;
+  border-radius: $radius-pill;
+}
+
+.accordionCounter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+}
+
+.accordionBody {
+  padding: 0.75rem 1rem 1rem;
+  border-top: 1px solid var(--color-cement);
+}
+
+.hint {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--color-ink-muted);
+  margin: -1rem 0 0.5rem;
+}
+
+.accordionHint {
+  font-size: 0.8125rem;
+  color: var(--color-ink-muted);
+  text-decoration: underline;
+}
+.accordionPhoto {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  border-radius: $radius-control;
+  margin-bottom: 0.75rem;
+}
+
+.hamburgerPhoto {
+  background-color:black;
+}
+
+.beveragePhoto {
+  background-color: #fff;
+}
+
+/* Información de pago */
+
+.paymentSection {
+  margin-top: 1rem;
+}
+
+.paymentToggle {
+  @include button-reset;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.85rem 1rem;
+
+  background-color: var(--color-carbon-ink);
+  color: var(--color-white-soft);
+
+  border-radius: $radius-control;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #393939;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.paymentArrow {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+  margin-right: 0.25rem;
+}
+
+.paymentArrowOpen {
+  transform: rotate(225deg);
+}
+
+.paymentDetails {
+  margin-top: 0.75rem;
+  padding: 1rem;
+
+  background-color: var(--color-white-soft);
+  border: 1px solid var(--color-cement);
+  border-radius: $radius-control;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.paymentDetailsTitle {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-carbon-ink);
+  text-align: center;
+}
+
+.paymentBankInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+
+  strong {
+    color: var(--color-carbon-ink);
+    font-size: 1rem;
+  }
+}
+
+.paymentDataItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+
+  padding: 0.75rem;
+
+  background-color: var(--color-canvas-sand);
+  border-radius: $radius-control;
+  border: 1px solid var(--color-cement);
+}
+
+.paymentDataInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.paymentDataLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-ink-muted);
+  text-transform: uppercase;
+}
+
+.paymentDataValue {
+  font-size: 0.875rem;
+  color: var(--color-carbon-ink);
+  overflow-wrap: anywhere;
+}
+
+.copyButton {
+  @include button-reset;
+
+  flex: 0 0 auto;
+  padding: 0.45rem 0.65rem;
+
+  border: 1px solid var(--color-carbon-ink);
+  border-radius: $radius-control;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-carbon-ink);
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--color-carbon-ink);
+    color: var(--color-white-soft);
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.paymentInstructions {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--color-ink-muted);
+}

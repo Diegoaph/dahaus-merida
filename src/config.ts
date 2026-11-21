@@ -86,3 +86,10 @@ export const WHATSAPP_URLS = {
   delivery: `https://wa.me/${WHATSAPP_NUMBER}?text=${DELIVERY_MESSAGE}`,
   event: `https://wa.me/${WHATSAPP_NUMBER}?text=${EVENT_MESSAGE}`,
 }
+
+export const PREVENTA_EVENT_NAME = (env.VITE_PREVENTA_EVENT_NAME || '').trim()
+
+export const EXCHANGE_RATE = (() => {
+  const n = parseFloat((env.VITE_EXCHANGE_RATE || '').trim().replace(',', '.'))
+  return Number.isFinite(n) && n > 0 ? n : 0
+})()

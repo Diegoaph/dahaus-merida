@@ -1,6 +1,7 @@
 import styles from './App.module.scss'
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
+import PreVenta from './components/PreVenta/PreVenta'
 import PadelBand from './components/PadelBand/PadelBand'
 import Locations from './components/Locations/Locations'
 import Menu from './components/Menu/Menu'
@@ -16,6 +17,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <PreVenta />
         <PadelBand />
         <Locations />
         <Menu />
