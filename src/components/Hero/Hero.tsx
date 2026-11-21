@@ -1,19 +1,38 @@
-import styles from './Hero.module.scss';
+import styles from './Hero.module.scss'
+import { WHATSAPP_URLS } from '../../config'
 
 export default function Hero() {
   return (
     <section id="hero" className={styles.hero} aria-labelledby="hero-title">
-      <div className="container" style={{ width: '100%' }}>
-        <h1 id="hero-title" className={styles.title}>La terraza más cool de Mérida</h1>
-        <a 
-          href="/menu.pdf" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className={styles.cta}
-        > <p>Ver Menú </p>
-        <img className={styles.menuIcon} src="/cutlery.svg" alt="menu Icon" width={24} height={24} />
-      </a>
+      <div className={styles.scrim}>
+        <div className={styles.content}>
+          <p className={styles.eyebrow}>Hamburguesas premium en Mérida</p>
+          <h1 id="hero-title" className={styles.title}>
+            Donde termina el partido, empieza Dahaus.
+          </h1>
+          <p className={styles.sub}>
+            Hamburguesas premium en Mérida, Venezuela, junto a las canchas de padel y con delivery
+            a toda la ciudad y Ejido.
+          </p>
+          <div className={styles.ctas}>
+            <a className={styles.ctaGhost} href="#menu">
+              Ver menú
+            </a>
+            <a
+              className={styles.ctaAmber}
+              href={WHATSAPP_URLS.delivery}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Pide por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className={styles.microbar}>
+        <p className={styles.microItem}>Delivery todos los días, 12:00 a 10:00 p.m.</p>
+        <p className={styles.microItem}>Cobertura: toda Mérida y Ejido</p>
       </div>
     </section>
-  );
+  )
 }

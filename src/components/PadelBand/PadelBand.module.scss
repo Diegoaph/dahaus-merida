@@ -1,0 +1,78 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.band {
+  background-color: $color-canvas-sand;
+  border-top: 1px solid rgba(28, 26, 23, 0.12);
+  border-bottom: 1px solid rgba(28, 26, 23, 0.12);
+  @include section-space;
+}
+
+.inner {
+  @include container;
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+
+  @media (min-width: $bp-tablet) {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+  }
+}
+
+.eyebrow {
+  @include eyebrow($color-woodstone);
+}
+
+.title {
+  @include section-heading;
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 4rem;
+    height: 4px;
+    border-radius: 2px;
+    background-color: $color-woodstone;
+  }
+}
+
+.body {
+  @include body-copy;
+  max-width: 52ch;
+
+  & + .body {
+    margin-top: 1rem;
+  }
+}
+
+.figure {
+  margin: 0;
+  position: relative;
+}
+
+.photo {
+  border-radius: $radius-image;
+  aspect-ratio: 4 / 5;
+  max-height: clamp(20rem, 55vw, 34rem);
+  object-fit: cover;
+  width: 100%;
+}
+
+@media (min-width: $bp-tablet) {
+  .photo {
+    aspect-ratio: 2 / 3;
+    max-height: none;
+  }
+}
+
+@media (min-width: $bp-desktop) {
+  .figure {
+    margin-top: 3rem;
+  }
+}

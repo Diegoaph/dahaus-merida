@@ -1,0 +1,165 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.section {
+  @include container;
+  @include section-space;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+.title {
+  @include section-heading;
+}
+
+.lead {
+  @include body-copy;
+  max-width: 52ch;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+
+  @media (min-width: $bp-desktop) {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.sedes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sede {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  background-color: $color-canvas-sand;
+  border: 1px solid rgba(28, 26, 23, 0.12);
+  border-radius: $radius-image;
+}
+
+.sedeName {
+  font-family: $font-display;
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: $color-carbon-ink;
+  margin: 0;
+}
+
+.sedeAddress {
+  @include body-copy;
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
+.sedeHours {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: $color-ink-muted;
+}
+
+.sedeLink {
+  @include cta-outline;
+  align-self: flex-start;
+  font-size: 0.875rem;
+  padding: 0.6rem 1.2rem;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  background-color: $color-cement;
+  border: 1px solid rgba(28, 26, 23, 0.12);
+  border-radius: $radius-image;
+}
+
+.contactTitle {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: $color-carbon-ink;
+}
+
+.contactCta {
+  @include cta-amber;
+  font-size: 1rem;
+  padding: 0.9rem 1.7rem;
+  cursor: pointer;
+}
+
+.contactTel {
+  @include transition-base;
+  font-family: $font-body;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: $color-carbon-ink;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.contactNote {
+  margin: 0.25rem 0 0;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: $color-ink-muted;
+
+  a {
+    color: $color-carbon-ink;
+  }
+}
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faqItem {
+  border: 1px solid rgba(28, 26, 23, 0.12);
+  border-radius: $radius-control;
+  background-color: $color-canvas-sand;
+  overflow: hidden;
+}
+
+.faqQuestion {
+  @include button-reset;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  text-align: left;
+  color: $color-carbon-ink;
+}
+
+.faqAnswer {
+  padding: 0 1.25rem 1.25rem;
+}
+
+.faqText {
+  @include body-copy;
+  font-size: 1rem;
+  margin: 0;
+}

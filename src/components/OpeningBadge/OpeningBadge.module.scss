@@ -1,0 +1,28 @@
+@use '../../styles/variables' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.32rem 0.8rem;
+  border-radius: $radius-pill;
+  background-color: $color-cement;
+  color: $color-carbon-ink;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background-color: rgba(28, 26, 23, 0.35);
+}
+
+.dotOn {
+  background-color: $color-carbon-ink;
+}

@@ -1,0 +1,75 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.section {
+  @include section-space;
+  background-color: $color-carbon-ink;
+}
+
+.inner {
+  @include container;
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 4rem);
+  align-items: center;
+
+  @media (min-width: $bp-desktop) {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+.eyebrow {
+  @include eyebrow($color-canvas-sand);
+}
+
+.title {
+  @include section-heading;
+  color: $color-canvas-sand;
+}
+
+.body {
+  @include body-copy;
+  color: $color-canvas-sand;
+  max-width: 48ch;
+  margin-bottom: 1.5rem;
+}
+
+.list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.item {
+  @include body-copy;
+  color: $color-canvas-sand;
+  font-size: 1rem;
+  padding-left: 1.15rem;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: $color-canvas-sand;
+    border-radius: 2px;
+  }
+}
+
+.cta {
+  @include cta-amber;
+  font-size: 1.125rem;
+  padding: 1rem 2rem;
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: $radius-image;
+}

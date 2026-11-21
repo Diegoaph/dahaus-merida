@@ -1,42 +1,90 @@
 @use './variables' as *;
 @use './mixins' as *;
 
-/* Reset mínimo y tipografías */
-* { box-sizing: border-box; }
-html, body, #root { height: 100%; }
+/* Reset mínimo */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
 
 body {
   margin: 0;
-  font-family: var(--font-base);
-  color: var(--primary-text);
+  min-height: 100svh;
+  font-family: var(--font-body);
+  line-height: 1.5;
+  color: var(--color-carbon-ink);
+  background-color: var(--color-canvas-sand);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-body,:root {
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
   margin: 0;
-  font-family: var(--font-base);
-  color: var(--primary-text);
 }
 
-/* Tipografía de encabezados global */
-h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+p {
+  margin: 0;
+}
 
-/* Scroll suave y respeto a reduced motion */
-html { scroll-behavior: smooth; }
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+::selection {
+  background-color: var(--color-padel-green);
+  color: var(--color-carbon-ink);
+}
+
+/* Foco global accesible (resto de superficies) */
+:focus-visible {
+  outline: 2px solid var(--color-mustard-amber);
+  outline-offset: 3px;
+}
+
+/* Usuarios que prefieren menos movimiento: nada se anima */
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
-  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }
 
-/* Enlaces por defecto */
-a { @include link-base; }
+/* Clase utilitaria de contenedor (cuando hace falta fuera de mixin) */
+.container {
+  @include container;
+}
 
-
-
-/* Utilidades */
-.container { @include container; }
-
-/* Estados de sección activa (ejemplo) */
-.section-active {
-  border-left: 4px solid var(--highlight);
-  background: rgba(255, 193, 7, 0.06);
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-padding-top: 5.5rem;
+  }
 }
